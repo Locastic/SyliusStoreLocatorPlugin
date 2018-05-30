@@ -1,0 +1,13 @@
+locastic_sylius_store_locator_plugin_admin_store:
+    resource: |
+        alias: locastic_sylius_store_locator_plugin.store
+        section: admin
+        templates: SyliusAdminBundle:Crud
+        redirect: update
+        grid: locastic_sylius_store_locator_plugin_admin_store
+        vars:
+            all:
+                subheader: app.ui.supplier
+            index:
+                icon: 'file image outline'
+    type: sylius.resource

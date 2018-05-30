@@ -1,0 +1,6 @@
+sylius_resource:
+    resources:
+        locastic_sylius_store_locator_plugin.store:
+            driver: doctrine/orm
+            classes:
+                model: Locastic\SyliusStoreLocatorPlugin\Entity\Store

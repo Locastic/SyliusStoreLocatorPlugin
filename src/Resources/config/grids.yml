@@ -1,0 +1,28 @@
+sylius_grid:
+    grids:
+        locastic_sylius_store_locator_plugin_admin_store:
+            driver:
+                name: doctrine/orm
+                options:
+                    class: Locastic\SyliusStoreLocatorPlugin\Entity\Store
+            fields:
+                code:
+                    type: string
+                    label: sylius.ui.name
+                enabled:
+                    type: twig
+                    label: sylius.ui.enabled
+                    options:
+                        template: "@SyliusUi/Grid/Field/enabled.html.twig"
+            actions:
+                main:
+                    create:
+                        type: create
+                item:
+                    update:
+                        type: update
+                    delete:
+                        type: delete
+                bulk:
+                    delete:
+                        type: delete

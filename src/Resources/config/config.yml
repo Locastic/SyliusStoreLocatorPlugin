@@ -1,0 +1,3 @@
+imports:
+    - { resource: "@LocasticSyliusStoreLocatorPlugin/Resources/config/resources.yml" }
+    - { resource: "@LocasticSyliusStoreLocatorPlugin/Resources/config/grids.yml" }

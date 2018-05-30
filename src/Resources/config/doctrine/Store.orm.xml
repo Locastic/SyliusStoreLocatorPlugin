@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xmlns:gedmo="http://gediminasm.org/schemas/orm/doctrine-extensions-mapping"
+                  xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
+                                      http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+
+    <mapped-superclass name="Locastic\SyliusStoreLocatorPlugin\Entity\Store"
+                       table="locastic_sylius_store_locator_store">
+
+        <id name="id" type="integer" column="id">
+            <generator strategy="IDENTITY"/>
+        </id>
+
+        <field name="code" column="code" length="255" unique="true"/>
+        <field name="latitude" type="decimal" column="latitude" precision="11" scale="8" nullable="true"/>
+        <field name="longitude" type="decimal" column="longitude" precision="11" scale="8" nullable="true"/>
+        <field name="contactPhone" column="contact_phone" length="255" nullable="true"/>
+        <field name="contactEmail" column="contact_email" length="255" nullable="true"/>
+
+        <field name="enabled" type="boolean" column="enabled"/>
+
+        <field name="createdAt" type="datetime" column="created_at">
+            <gedmo:timestampable on="create"/>
+        </field>
+
+        <field name="updatedAt" type="datetime" column="updated_at" nullable="true">
+            <gedmo:timestampable on="update"/>
+        </field>
+
+    </mapped-superclass>
+</doctrine-mapping>
