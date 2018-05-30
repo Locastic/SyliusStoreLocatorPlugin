@@ -1,8 +1,18 @@
 {
-    "name": "sylius/plugin-skeleton",
+    "name": "locastic/sylius-store-locator-plugin",
     "type": "sylius-plugin",
-    "description": "Acme example plugin for Sylius.",
+    "description": "Sylius plugin that allows you to create offline location of your stores and enable pickup at location delivery",
     "license": "MIT",
+    "authors": [
+        {
+            "name": "Locastic",
+            "email": "info@locastic.com"
+        },
+        {
+            "name": "Antonio Peric-Mazar",
+            "email": "antonio@locastic.com"
+        }
+    ],
     "require": {
         "php": "^7.1",
 
@@ -30,7 +40,7 @@
     "prefer-stable": true,
     "autoload": {
         "psr-4": {
-            "Acme\\SyliusExamplePlugin\\": "src/",
+            "Locastic\\SyliusStoreLocatorPlugin\\": "src/",
             "Tests\\Acme\\SyliusExamplePlugin\\": "tests/"
         }
     },
