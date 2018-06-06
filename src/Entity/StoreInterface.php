@@ -10,11 +10,11 @@ use Sylius\Component\Resource\Model\ToggleableInterface;
 use Sylius\Component\Resource\Model\TranslatableInterface;
 
 
-interface StoreInterface extends ResourceInterface, ToggleableInterface, TimestampableInterface
+interface StoreInterface extends ResourceInterface, ToggleableInterface, TimestampableInterface, TranslatableInterface
 {
-//    public function getSlug(): ?string;
-//
-//    public function setSlug(?string $slug): void;
+    public function getSlug(): ?string;
+
+    public function setSlug(?string $slug): void;
 
     public function getCode(): ?string;
 
@@ -36,41 +36,23 @@ interface StoreInterface extends ResourceInterface, ToggleableInterface, Timesta
 
     public function getContactPhone(): ?string;
 
+    public function getName(): ?string;
 
+    public function setName(?string $name): void;
 
-//    public function getMetaTitle(): ?string;
-//
-//    public function setMetaTitle(?string $metaKeywords): void;
-//
-//    public function getMetaKeywords(): ?string;
-//
-//    public function setMetaKeywords(?string $metaKeywords): void;
-//
-//    public function getMetaDescription(): ?string;
-//
-//    public function setMetaDescription(?string $metaDescription): void;
-//
-//    public function getContent(): ?string;
-//
-//    public function setContent(?string $content): void;
-//
-//    public function getName(): ?string;
-//
-//    public function setName(?string $name): void;
+    public function getMetaTitle(): ?string;
+
+    public function setMetaTitle(?string $metaTitle): void;
+
+    public function getMetaKeywords(): ?string;
+
+    public function setMetaKeywords(?string $metaKeywords): void;
+
+    public function getMetaDescription(): ?string;
+
+    public function setMetaDescription(?string $metaDescription): void;
+
+    public function getContent(): ?string;
+
+    public function setContent(?string $content): void;
 }
-
-/**
- * id
- * slug (t)
- * code
- * title (t)
- * content (t)
- * longitude
- * latitude
- * workingHours (t)
- * contactPhone
- * contactEmail
- * metaTitle (t)
- * metaDescription (t)
- * metaKeywords (t)
- */

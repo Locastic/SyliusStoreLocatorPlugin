@@ -13,6 +13,9 @@ class Store implements StoreInterface
 {
     use ToggleableTrait;
     use TimestampableTrait;
+    use TranslatableTrait {
+        __construct as protected initializeTranslationsCollection;
+    }
 
     protected $id;
 
@@ -29,6 +32,8 @@ class Store implements StoreInterface
 
     public function __construct()
     {
+        $this->initializeTranslationsCollection();
+
         $this->createdAt = new \DateTime();
     }
 
@@ -85,5 +90,75 @@ class Store implements StoreInterface
     public function setContactEmail(?string $contactEmail): void
     {
         $this->contactEmail = $contactEmail;
+    }
+
+    public function getSlug(): ?string
+    {
+        $this->getTranslation()->getSlug();
+    }
+
+    public function setSlug(?string $slug): void
+    {
+        $this->getTranslation()->setSlug($slug);
+    }
+
+    public function getName(): ?string
+    {
+        return $this->getTranslation()->getName();
+    }
+
+    public function setName(?string $name): void
+    {
+        $this->getTranslation()->setName($name);
+    }
+
+    public function getMetaTitle(): ?string
+    {
+        return $this->getTranslation()->getMetaTitle();
+    }
+
+    public function setMetaTitle(?string $metaTitle): void
+    {
+        $this->getTranslation()->setMetaTitle($metaTitle);
+    }
+
+    public function getMetaKeywords(): ?string
+    {
+        return $this->getTranslation()->getMetaKeywords();
+    }
+
+    public function setMetaKeywords(?string $metaKeywords): void
+    {
+        $this->getTranslation()->setMetaKeywords($metaKeywords);
+    }
+
+    public function getMetaDescription(): ?string
+    {
+        return $this->getTranslation()->getMetaDescription();
+    }
+
+    public function setMetaDescription(?string $metaDescription): void
+    {
+        $this->getTranslation()->setMetaDescription($metaDescription);
+    }
+
+    public function getContent(): ?string
+    {
+        return $this->getTranslation()->getContent();
+    }
+
+    public function setContent(?string $content): void
+    {
+        $this->getTranslation()->setContent($content);
+    }
+
+    protected function getPageTranslation(): StoreTranslationInterface
+    {
+        return $this->getTranslation();
+    }
+
+    protected function createTranslation(): ?StoreTranslationInterface
+    {
+        return new StoreTranslation();
     }
 }

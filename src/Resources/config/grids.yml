@@ -8,7 +8,7 @@ sylius_grid:
             fields:
                 code:
                     type: string
-                    label: sylius.ui.name
+                    label: sylius.ui.code
                 enabled:
                     type: twig
                     label: sylius.ui.enabled
@@ -21,8 +21,5 @@ sylius_grid:
                 item:
                     update:
                         type: update
-                    delete:
-                        type: delete
-                bulk:
                     delete:
                         type: delete
