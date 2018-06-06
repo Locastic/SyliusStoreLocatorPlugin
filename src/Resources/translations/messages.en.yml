@@ -1,0 +1,4 @@
+locastic_sylius_store_locator_plugin:
+    ui:
+        store_locator: Store Locator
+        stores: Stores
