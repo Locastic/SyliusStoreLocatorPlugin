@@ -2,3 +2,10 @@ locastic_sylius_store_locator_plugin:
     ui:
         store_locator: Store Locator
         stores: Stores
+        name: Store Name
+        slug: Slug
+        meta_title: Meta title
+        meta_description: Meta description
+        meta_keywords: Meta keywords
+        code: Code
+        enabled: Enabled

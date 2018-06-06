@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
+                                      http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+
+    <mapped-superclass name="Locastic\SyliusStoreLocatorPlugin\Entity\StoreTranslation"
+                       table="locastic_sylius_store_locator_store_translation">
+
+        <id name="id" type="integer" column="id">
+            <generator strategy="IDENTITY"/>
+        </id>
+
+        <field name="slug" column="slug" length="255" unique="true"/>
+        <field name="name" column="name" length="255" />
+        <field name="content" column="content" type="text" />
+        <field name="metaTitle" column="meta_title" length="255" />
+        <field name="metaDescription" column="meta_description" length="255" />
+        <field name="metaKeywords" column="meta_keywords" length="255" />
+    </mapped-superclass>
+</doctrine-mapping>

@@ -6,6 +6,9 @@ sylius_grid:
                 options:
                     class: Locastic\SyliusStoreLocatorPlugin\Entity\Store
             fields:
+                name:
+                    type: string
+                    label: sylius.ui.name
                 code:
                     type: string
                     label: sylius.ui.code
