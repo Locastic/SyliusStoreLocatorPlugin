@@ -42,6 +42,11 @@ class Store implements StoreInterface
         return $this->id;
     }
 
+    public function setId(?int $id): void
+    {
+        $this->id = $id;
+    }
+
     public function getCode(): ?string
     {
         return $this->code;
@@ -152,7 +157,7 @@ class Store implements StoreInterface
         $this->getTranslation()->setContent($content);
     }
 
-    protected function getPageTranslation(): StoreTranslationInterface
+    protected function getStoreTranslation(): StoreTranslationInterface
     {
         return $this->getTranslation();
     }

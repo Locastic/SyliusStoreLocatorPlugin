@@ -15,7 +15,7 @@ services:
             - { name: form.type }
 
     locastic_sylius_store_locator_plugin.form.type.translation.store:
-        class: Locastic\SyliusStoreLocatorPlugin\Form\Type\Translation\PageTranslationType
+        class: Locastic\SyliusStoreLocatorPlugin\Form\Type\Translation\StoreTranslationType
         arguments:
             - "%locastic_sylius_store_locator_plugin.model.store_translation.class%"
             - ['locastic']
