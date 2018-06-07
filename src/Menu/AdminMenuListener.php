@@ -24,6 +24,6 @@ final class AdminMenuListener
                 ]
             )
             ->setLabel('locastic_sylius_store_locator_plugin.ui.stores')
-            ->setLabelAttribute('icon', 'world');
+            ->setLabelAttribute('icon', 'map marker alternate');
     }
 }

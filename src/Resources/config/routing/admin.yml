@@ -7,7 +7,7 @@ locastic_sylius_store_locator_plugin_admin_store:
         grid: locastic_sylius_store_locator_plugin_admin_store
         vars:
             all:
-                subheader: app.ui.supplier
+                subheader: locastic_sylius_store_locator_plugin.ui.manage_stores
             index:
-                icon: 'file image outline'
+                icon: 'map marker alternate'
     type: sylius.resource
