@@ -38,7 +38,7 @@ final class StoreType extends AbstractResourceType
                 'label' => 'locastic_sylius_store_locator_plugin.ui.contact_email',
             ])
             ->add('translations', ResourceTranslationsType::class, [
-                'label' => 'bitbag_sylius_cms_plugin.ui.images',
+                'label' => 'nesto tu ide',
                 'entry_type' => StoreTranslationType::class,
             ])
         ;
@@ -46,6 +46,6 @@ final class StoreType extends AbstractResourceType
 
     public function getBlockPrefix(): string
     {
-        return 'locastic_sylius_store_locator_plugin_page';
+        return 'locastic_sylius_store_locator_plugin_store';
     }
 }
