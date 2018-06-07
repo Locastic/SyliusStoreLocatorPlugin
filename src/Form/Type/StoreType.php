@@ -37,8 +37,11 @@ final class StoreType extends AbstractResourceType
             ->add('contactEmail', EmailType::class, [
                 'label' => 'locastic_sylius_store_locator_plugin.ui.contact_email',
             ])
+            ->add('address', TextType::class, [
+                'label' => 'locastic_sylius_store_locator_plugin.ui.address',
+            ])
             ->add('translations', ResourceTranslationsType::class, [
-                'label' => 'nesto tu ide',
+                'label' => 'locastic_sylius_store_locator_plugin.ui.translations',
                 'entry_type' => StoreTranslationType::class,
             ])
         ;

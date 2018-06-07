@@ -1,0 +1,39 @@
+{% from '@LocasticSyliusStoreLocatorPlugin/Macro/translationForm.html.twig' import translationForm %}
+{% form_theme form '@LocasticSyliusStoreLocatorPlugin/Form/theme.html.twig' %}
+
+<div class="ui two column stackable grid">
+    <div class="column">
+        <div class="ui segment">
+            {{ form_errors(form) }}
+            {{ form_row(form.code) }}
+            {{ form_row(form.enabled) }}
+        </div>
+    </div>
+    <div class="column">
+        <div class="ui segment">
+            {{ form_errors(form) }}
+            {{ form_row(form.latitude) }}
+            {{ form_row(form.longitude) }}
+            {{ form_row(form.contactPhone) }}
+            {{ form_row(form.contactEmail) }}
+            {{ form_row(form.address) }}
+
+            <div class="ui segment">
+                <div id="mapHolder" style="height: 500px;"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="ui one column stackable grid">
+    <div class="column" id="bitbag-block-image">
+        {{ translationForm(form.translations, resource) }}
+    </div>
+</div>
+
+{% block javascripts %}
+    <!-- todo: add key to config-->
+    <script src="//maps.googleapis.com/maps/api/js?key="></script>
+    {% include '@SyliusUi/_javascripts.html.twig' with {'path': 'assets/shop/js/app.js'} %}
+    {% include '@SyliusUi/_javascripts.html.twig' with {'path': 'bundles/locasticsyliusstorelocatorplugin/js/locations.js'} %}
+{% endblock %}

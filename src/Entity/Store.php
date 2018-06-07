@@ -29,6 +29,8 @@ class Store implements StoreInterface
 
     protected $contactEmail;
 
+    protected $address;
+
 
     public function __construct()
     {
@@ -95,6 +97,17 @@ class Store implements StoreInterface
     public function setContactEmail(?string $contactEmail): void
     {
         $this->contactEmail = $contactEmail;
+    }
+
+
+    public function getAddress(): ?string
+    {
+        return $this->address;
+    }
+
+    public function setAddress(?string $address): void
+    {
+        $this->address = $address;
     }
 
     public function getSlug(): ?string
