@@ -20,4 +20,4 @@ services:
             - "%locastic_sylius_store_locator_plugin.model.store_translation.class%"
             - ['locastic']
         tags:
-          - { name: form.type }
+            - { name: form.type }
