@@ -10,6 +10,7 @@ use Sylius\Bundle\ResourceBundle\Form\Type\ResourceTranslationsType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 
@@ -28,10 +29,12 @@ final class StoreType extends AbstractResourceType
             ->add('latitude', NumberType::class, [
                 'label' => 'locastic_sylius_store_locator_plugin.ui.latitude',
                 'required' => false,
+                'scale' => 8,
             ])
             ->add('longitude', NumberType::class, [
                 'label' => 'locastic_sylius_store_locator_plugin.ui.longitude',
                 'required' => false,
+                'scale' => 8,
             ])
             ->add('contactPhone', TextType::class, [
                 'label' => 'locastic_sylius_store_locator_plugin.ui.contact_phone',
@@ -45,7 +48,7 @@ final class StoreType extends AbstractResourceType
                 'label' => 'locastic_sylius_store_locator_plugin.ui.address',
                 'required' => false,
             ])
-            ->add('workingTime', TextType::class, [
+            ->add('workingTime', TextareaType::class, [
                 'label' => 'locastic_sylius_store_locator_plugin.ui.working_time',
                 'required' => false,
             ])

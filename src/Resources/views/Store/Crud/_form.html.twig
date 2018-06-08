@@ -24,12 +24,12 @@
             {{ form_row(form.latitude) }}
             {{ form_row(form.longitude) }}
             {{ form_row(form.address) }}
-            {{ form_row(form.workingTime) }}
 
             <div class="ui segment">
                 <div id="mapHolder" style="height: 500px;"></div>
             </div>
 
+            {{ form_row(form.workingTime) }}
             {{ form_row(form.contactPhone) }}
             {{ form_row(form.contactEmail) }}
         </div>
@@ -38,7 +38,7 @@
 
 {% block javascripts %}
     <!-- todo: add key to config-->
-    <script src="//maps.googleapis.com/maps/api/js?key=AIzaSyBq0WDCeUEWVFZ3t_rVkJY30B33blh8unw"></script>
+    <script src="//maps.googleapis.com/maps/api/js?key=AIzaSyBq0WDCeUEWVFZ3t_rVkJY30B33blh8unw&libraries=places"></script>
     {% include '@SyliusUi/_javascripts.html.twig' with {'path': 'assets/shop/js/app.js'} %}
     {% include '@SyliusUi/_javascripts.html.twig' with {'path': 'bundles/locasticsyliusstorelocatorplugin/js/locations.js'} %}
 {% endblock %}

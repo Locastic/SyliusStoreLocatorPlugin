@@ -4,19 +4,30 @@
 
     var latitudeInput = $('#locastic_sylius_store_locator_plugin_store_latitude');
     var longitudeInput = $('#locastic_sylius_store_locator_plugin_store_longitude');
-    var addressInput = $('#locastic_sylius_store_locator_plugin_store_address');
+    var addressInput = document.getElementById('locastic_sylius_store_locator_plugin_store_address'); //$('#locastic_sylius_store_locator_plugin_store_address');
+    var autocomplete = new google.maps.places.Autocomplete(addressInput);
+
 
     var mapsLoaded = window.google && window.google.maps;
     var map = {
         element: $('#mapHolder'),
         config: {
             mapTypeId: mapsLoaded && google.maps.MapTypeId.ROADMAP,
-            zoom: 6,
+            zoom: 17,
             center: mapsLoaded && new google.maps.LatLng(latitudeInput.val(), longitudeInput.val())
         },
         markers: [],
         bounds: mapsLoaded && new google.maps.LatLngBounds(null)
     };
+
+    autocomplete.addListener('place_changed', function () {
+        var latlng = autocomplete.getPlace().geometry.location;
+
+        latitudeInput.val(latlng.lat);
+        longitudeInput.val(latlng.lng);
+
+        map.setMarkers();
+    });
 
 
     map.getMarkerById = function (id) {
@@ -53,8 +64,7 @@
                 lat: Number(latitudeInput.val()),
                 lng: Number(longitudeInput.val())
             },
-            map: map.instance,
-            animation: google.maps.Animation.DROP
+            map: map.instance
         };
 
         var marker = new google.maps.Marker(markerConfig);
@@ -65,8 +75,7 @@
             lat: markerConfig.position.lat,
             lng: markerConfig.position.lng
         }));
-        map.instance.panToBounds(map.bounds);
-        map.instance.fitBounds(map.bounds);
+        map.instance.panTo(markerConfig.position);
     };
 
 
@@ -96,9 +105,9 @@
         map.setAddress();
     });
 
-    longitudeInput.keyup(function () {
-        map.setMarkers();
-        map.setAddress();
-    });
+    // longitudeInput.keyup(function () {
+    //     map.setMarkers();
+    //     map.setAddress();
+    // });
 
 }(window.jQuery));
