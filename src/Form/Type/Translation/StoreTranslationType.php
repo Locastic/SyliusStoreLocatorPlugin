@@ -22,16 +22,17 @@ final class StoreTranslationType extends AbstractResourceType
             ])
             ->add('content', TextareaType::class, [
                 'label' => 'locastic_sylius_store_locator_plugin.ui.content',
+                'required' => false,
             ])
-            ->add('metaTitle', TextareaType::class, [
+            ->add('metaTitle', TextType::class, [
                 'label' => 'locastic_sylius_store_locator_plugin.ui.meta_title',
                 'required' => false,
             ])
-            ->add('metaKeywords', TextareaType::class, [
+            ->add('metaKeywords', TextType::class, [
                 'label' => 'locastic_sylius_store_locator_plugin.ui.meta_keywords',
                 'required' => false,
             ])
-            ->add('metaDescription', TextareaType::class, [
+            ->add('metaDescription', TextType::class, [
                 'label' => 'locastic_sylius_store_locator_plugin.ui.meta_description',
                 'required' => false,
             ])

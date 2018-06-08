@@ -9,25 +9,30 @@
             {{ form_row(form.enabled) }}
         </div>
     </div>
-    <div class="column">
-        <div class="ui segment">
-            {{ form_errors(form) }}
-            {{ form_row(form.latitude) }}
-            {{ form_row(form.longitude) }}
-            {{ form_row(form.contactPhone) }}
-            {{ form_row(form.contactEmail) }}
-            {{ form_row(form.address) }}
-
-            <div class="ui segment">
-                <div id="mapHolder" style="height: 500px;"></div>
-            </div>
-        </div>
-    </div>
 </div>
 
 <div class="ui one column stackable grid">
     <div class="column" id="bitbag-block-image">
         {{ translationForm(form.translations, resource) }}
+    </div>
+</div>
+
+<div class="ui two column stackable grid">
+    <div class="column">
+        <div class="ui segment">
+            {{ form_errors(form) }}
+            {{ form_row(form.latitude) }}
+            {{ form_row(form.longitude) }}
+            {{ form_row(form.address) }}
+            {{ form_row(form.workingTime) }}
+
+            <div class="ui segment">
+                <div id="mapHolder" style="height: 500px;"></div>
+            </div>
+
+            {{ form_row(form.contactPhone) }}
+            {{ form_row(form.contactEmail) }}
+        </div>
     </div>
 </div>
 

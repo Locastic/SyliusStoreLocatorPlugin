@@ -31,6 +31,8 @@ class Store implements StoreInterface
 
     protected $address;
 
+    protected $workingTime;
+
 
     public function __construct()
     {
@@ -112,7 +114,7 @@ class Store implements StoreInterface
 
     public function getSlug(): ?string
     {
-        $this->getTranslation()->getSlug();
+        return $this->getTranslation()->getSlug();
     }
 
     public function setSlug(?string $slug): void
@@ -168,6 +170,16 @@ class Store implements StoreInterface
     public function setContent(?string $content): void
     {
         $this->getTranslation()->setContent($content);
+    }
+
+    public function getWorkingTime(): ?string
+    {
+        return $this->workingTime;
+    }
+
+    public function setWorkingTime(?string $workingTime): void
+    {
+        $this->workingTime = $workingTime;
     }
 
     protected function getStoreTranslation(): StoreTranslationInterface

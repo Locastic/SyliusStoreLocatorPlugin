@@ -27,18 +27,27 @@ final class StoreType extends AbstractResourceType
             ])
             ->add('latitude', NumberType::class, [
                 'label' => 'locastic_sylius_store_locator_plugin.ui.latitude',
+                'required' => false,
             ])
             ->add('longitude', NumberType::class, [
                 'label' => 'locastic_sylius_store_locator_plugin.ui.longitude',
+                'required' => false,
             ])
             ->add('contactPhone', TextType::class, [
                 'label' => 'locastic_sylius_store_locator_plugin.ui.contact_phone',
+                'required' => false,
             ])
             ->add('contactEmail', EmailType::class, [
                 'label' => 'locastic_sylius_store_locator_plugin.ui.contact_email',
+                'required' => false,
             ])
             ->add('address', TextType::class, [
                 'label' => 'locastic_sylius_store_locator_plugin.ui.address',
+                'required' => false,
+            ])
+            ->add('workingTime', TextType::class, [
+                'label' => 'locastic_sylius_store_locator_plugin.ui.working_time',
+                'required' => false,
             ])
             ->add('translations', ResourceTranslationsType::class, [
                 'label' => 'locastic_sylius_store_locator_plugin.ui.translations',

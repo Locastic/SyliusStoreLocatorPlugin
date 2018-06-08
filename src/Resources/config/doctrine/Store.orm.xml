@@ -19,6 +19,7 @@
         <field name="contactPhone" column="contact_phone" length="255" nullable="true"/>
         <field name="contactEmail" column="contact_email" length="255" nullable="true"/>
         <field name="address" column="address" length="255" nullable="true"/>
+        <field name="workingTime" column="working_time" type="text" nullable="true"/>
 
         <field name="enabled" type="boolean" column="enabled"/>
 
