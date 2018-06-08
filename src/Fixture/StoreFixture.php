@@ -21,30 +21,30 @@ final class StoreFixture extends AbstractFixture
 
     public function load(array $options): void
     {
-        foreach ($options['custom'] as $code => $option) {
+        foreach ($options[ 'custom' ] as $code => $option) {
             $store = new Store();
             $store->setCode($code);
 
-            foreach ($option['translations'] as $locale => $translation) {
+            foreach ($option[ 'translations' ] as $locale => $translation) {
                 $pageTranslation = new StoreTranslation();
                 $pageTranslation->setLocale($locale);
 
-                $pageTranslation->setName($translation['name']);
-                $pageTranslation->setSlug($translation['slug']);
-                $pageTranslation->setContent($translation['content']);
-                $pageTranslation->setWorkingTime($translation['working_time']);
-                $pageTranslation->setMetaTitle($translation['meta_title']);
-                $pageTranslation->setMetaDescription($translation['meta_description']);
-                $pageTranslation->setMetaKeywords($translation['meta_keywords']);
+                $pageTranslation->setName($translation[ 'name' ]);
+                $pageTranslation->setSlug($translation[ 'slug' ]);
+                $pageTranslation->setContent($translation[ 'content' ]);
+                $pageTranslation->setWorkingTime($translation[ 'working_time' ]);
+                $pageTranslation->setMetaTitle($translation[ 'meta_title' ]);
+                $pageTranslation->setMetaDescription($translation[ 'meta_description' ]);
+                $pageTranslation->setMetaKeywords($translation[ 'meta_keywords' ]);
 
                 $store->addTranslation($pageTranslation);
             }
 
-            $store->setLatitude($option['latitude']);
-            $store->setLongitude($option['longitude']);
-            $store->setAddress($option['address']);
-            $store->setContactEmail($option['contact_email']);
-            $store->setContactPhone($option['contact_phone']);
+            $store->setLatitude($option[ 'latitude' ]);
+            $store->setLongitude($option[ 'longitude' ]);
+            $store->setAddress($option[ 'address' ]);
+            $store->setContactEmail($option[ 'contact_email' ]);
+            $store->setContactPhone($option[ 'contact_phone' ]);
 
             $this->storeManager->persist($store);
         }
