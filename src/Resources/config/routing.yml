@@ -1,3 +1,7 @@
 locastic_sylius_store_locator_plugin_admin:
     resource: "@LocasticSyliusStoreLocatorPlugin/Resources/config/routing/admin.yml"
     prefix: /admin
+
+locastic_sylius_store_locator_plugin_shop:
+    resource: "@LocasticSyliusStoreLocatorPlugin/Resources/config/routing/shop.yml"
+    prefix: /{_locale}/store-locator

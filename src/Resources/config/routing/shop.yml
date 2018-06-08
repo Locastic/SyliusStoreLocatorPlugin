@@ -1,0 +1,13 @@
+locastic_sylius_store_locator_plugin_shop_store_index:
+    path: /
+    methods: [GET]
+    defaults:
+        _controller: locastic_sylius_store_locator_plugin.controller.store:indexAction
+        _sylius:
+            template: "@LocasticSyliusStoreLocatorPlugin/Shop/Store/index.html.twig"
+            paginate: false
+            criteria:
+                enabled: false
+            sortable: true
+            sorting:
+                code: asc

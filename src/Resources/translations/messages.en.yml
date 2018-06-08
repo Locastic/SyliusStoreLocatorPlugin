@@ -18,3 +18,4 @@ locastic_sylius_store_locator_plugin:
         translations: Translations
         address: Address
         working_time: Working time
+        see_more: See More

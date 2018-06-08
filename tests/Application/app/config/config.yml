@@ -1,7 +1,7 @@
 parameters:
     locale: en_US
     secret: "Heron is the best animal in the world!"
-    gmap_api_key: AIzaSyBq0WDCeUEWVFZ3t_rVkJY30B33blh8unw
+
 
 imports:
     - { resource: "@SyliusCoreBundle/Resources/config/app/config.yml" }
