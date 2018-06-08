@@ -1,13 +1,15 @@
 'use strict';
 
 (function ($) {
+    /** global: google */
+
     function initMap() {
         var map = new google.maps.Map(document.getElementById('map'));
         map.bounds = new google.maps.LatLngBounds();
 
         var stores = $('.store-location');
 
-        stores.each(function (index) {
+        stores.each(function () {
             var latLng = {lat: $(this).data('lat'), lng: $(this).data('lng')};
             var marker = new google.maps.Marker({
                 position: latLng,
