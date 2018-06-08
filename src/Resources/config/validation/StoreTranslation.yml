@@ -1,0 +1,21 @@
+Locastic\SyliusStoreLocatorPlugin\Entity\StoreTranslation:
+    constraints:
+        - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity:
+            fields: [slug, locale]
+            errorPath: slug
+            groups: [locastic]
+    properties:
+        name:
+            - NotBlank:
+                groups: [locastic]
+            - Length:
+                min: 2
+                max: 250
+                groups: [locastic]
+        slug:
+            - NotBlank:
+                groups: [locastic]
+            - Length:
+                min: 2
+                max: 250
+                groups: [locastic]
