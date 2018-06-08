@@ -4,7 +4,7 @@
 
     var latitudeInput = $('#locastic_sylius_store_locator_plugin_store_latitude');
     var longitudeInput = $('#locastic_sylius_store_locator_plugin_store_longitude');
-    var addressInput = document.getElementById('locastic_sylius_store_locator_plugin_store_address'); //$('#locastic_sylius_store_locator_plugin_store_address');
+    var addressInput = document.getElementById('locastic_sylius_store_locator_plugin_store_address');
     var autocomplete = new google.maps.places.Autocomplete(addressInput);
 
 
@@ -90,13 +90,24 @@
         geocoder.geocode({'location': latlng}, function (results, status) {
             if (status === 'OK') {
                 if (results[0]) {
-                    addressInput.val(results[0].formatted_address);
+                    addressInput.value = results[0].formatted_address;
                 }
             }
         });
     };
 
     map.instance = mapsLoaded && new google.maps.Map(map.element.get(0), map.config);
+
+    google.maps.event.addListener(map.instance, 'click', function(event) {
+        var latlng = event.latLng;
+
+        latitudeInput.val(latlng.lat);
+        longitudeInput.val(latlng.lng);
+
+        map.setMarkers();
+        map.setAddress();
+    });
+
 
     map.setMarkers();
 
@@ -105,9 +116,9 @@
         map.setAddress();
     });
 
-    // longitudeInput.keyup(function () {
-    //     map.setMarkers();
-    //     map.setAddress();
-    // });
+    longitudeInput.keyup(function () {
+        map.setMarkers();
+        map.setAddress();
+    });
 
 }(window.jQuery));

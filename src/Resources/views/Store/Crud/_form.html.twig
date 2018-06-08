@@ -38,7 +38,7 @@
 
 {% block javascripts %}
     <!-- todo: add key to config-->
-    <script src="//maps.googleapis.com/maps/api/js?key=&libraries=places"></script>
+    <script src="//maps.googleapis.com/maps/api/js?key={{ gmap_api_key }}&libraries=places"></script>
     {% include '@SyliusUi/_javascripts.html.twig' with {'path': 'assets/shop/js/app.js'} %}
     {% include '@SyliusUi/_javascripts.html.twig' with {'path': 'bundles/locasticsyliusstorelocatorplugin/js/locations.js'} %}
 {% endblock %}
