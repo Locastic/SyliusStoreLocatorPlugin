@@ -21,3 +21,11 @@ services:
             - ['locastic']
         tags:
             - { name: form.type }
+
+# fixtures
+    locastic_sylius_store_locator_plugin.fixture.store:
+        class: Locastic\SyliusStoreLocatorPlugin\Fixture\StoreFixture
+        arguments:
+            - '@locastic_sylius_store_locator_plugin.manager.store'
+        tags:
+            - { name: sylius_fixtures.fixture }

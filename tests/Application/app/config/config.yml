@@ -1,6 +1,7 @@
 parameters:
     locale: en_US
     secret: "Heron is the best animal in the world!"
+    gmap_api_key: AIzaSyBq0WDCeUEWVFZ3t_rVkJY30B33blh8unw
 
 imports:
     - { resource: "@SyliusCoreBundle/Resources/config/app/config.yml" }
@@ -10,6 +11,7 @@ imports:
 
     - { resource: "../../../../vendor/sylius/sylius/app/config/security.yml" }
     - { resource: "@LocasticSyliusStoreLocatorPlugin/Resources/config/config.yml" }
+    - { resource: "fixtures.yml" }
 
 framework:
     translator: { fallbacks: ["%locale%", "en"] }

@@ -16,11 +16,14 @@ class StoreTranslation extends AbstractTranslation implements StoreTranslationIn
 
     protected $content;
 
+    protected $workingTime;
+
     protected $metaTitle;
 
     protected $metaKeywords;
 
     protected $metaDescription;
+
 
     public function getId(): int
     {
@@ -58,6 +61,15 @@ class StoreTranslation extends AbstractTranslation implements StoreTranslationIn
         return $this->content;
     }
 
+    public function setWorkingTime(?string $workingTime): void
+    {
+        $this->workingTime = $workingTime;
+    }
+
+    public function getWorkingTime(): ?string
+    {
+        return $this->workingTime;
+    }
 
     public function setContent(?string $content): void
     {

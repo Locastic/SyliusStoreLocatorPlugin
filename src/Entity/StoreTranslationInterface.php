@@ -32,4 +32,8 @@ interface StoreTranslationInterface extends ResourceInterface, TranslationInterf
     public function getContent(): ?string;
 
     public function setContent(?string $content): void;
+
+    public function getWorkingTime(): ?string;
+
+    public function setWorkingTime(?string $workingTime): void;
 }

@@ -1,0 +1,83 @@
+parameters:
+    fixtures_dir: "%kernel.root_dir%/../app/Resources/fixtures"
+
+sylius_fixtures:
+    suites:
+        default:
+            listeners:
+                logger: ~
+            fixtures:
+                store:
+                    options:
+                        custom:
+                            locastic_store_dragovode:
+                                latitude: 43.5129188
+                                longitude: 16.48521519999997
+                                address: Lovački put 7, 21000, Split, Croatia
+                                contact_phone: '+38521782059'
+                                contact_email: info@locastic.com
+                                translations:
+                                    en_US:
+                                        name: "Locastic Store Dragovode"
+                                        slug: "locastic-store-dragovode"
+                                        meta_title: "Locastic Store Dragovode"
+                                        meta_description: "Mobile and web development agency, store 1"
+                                        meta_keywords: "mobile, web, split, croatia, store, dragovode, locastic"
+                                        content: |
+                                               <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. </p>
+                                               <ul>
+                                                   <li>Morbi in sem quis dui placerat ornare. Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. Sed arcu. Cras consequat.</li>
+                                                   <li>Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus.</li>
+                                                   <li>Phasellus ultrices nulla quis nibh. Quisque a lectus. Donec consectetuer ligula vulputate sem tristique cursus. Nam nulla quam, gravida non, commodo a, sodales sit amet, nisi.</li>
+                                                   <li>Pellentesque fermentum dolor. Aliquam quam lectus, facilisis auctor, ultrices ut, elementum vulputate, nunc.</li>
+                                               </ul>
+                                               <p>Pellentesque habitant morbi tristique sene</p>
+                                        working_time: Mon-Fri 09-17h
+
+                            locastic_store_stinice:
+                                latitude: 43.52403381
+                                longitude: 16.44966969999996
+                                address: Stinice 12, 21000, Split, Croatia
+                                contact_phone: '+38521782059'
+                                contact_email: info@locastic.com
+                                translations:
+                                    en_US:
+                                        name: "Locastic Store Stinice"
+                                        slug: "locastic-store-stinice"
+                                        meta_title: "Locastic Store Stinice"
+                                        meta_description: "Mobile and web development agency, store Stinice"
+                                        meta_keywords: "mobile, web, split, croatia, store, stinice, locastic"
+                                        content: |
+                                               <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. </p>
+                                               <ul>
+                                                   <li>Morbi in sem quis dui placerat ornare. Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. Sed arcu. Cras consequat.</li>
+                                                   <li>Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus.</li>
+                                                   <li>Phasellus ultrices nulla quis nibh. Quisque a lectus. Donec consectetuer ligula vulputate sem tristique cursus. Nam nulla quam, gravida non, commodo a, sodales sit amet, nisi.</li>
+                                                   <li>Pellentesque fermentum dolor. Aliquam quam lectus, facilisis auctor, ultrices ut, elementum vulputate, nunc.</li>
+                                               </ul>
+                                               <p>Pellentesque habitant morbi tristique sene</p>
+                                        working_time: Mon-Fri 09-17h
+
+                            locastic_store_firule:
+                                latitude: 43.502298
+                                longitude: 16.456564200000003
+                                address: Rooseweltova 52, 21000, Split, Croatia
+                                contact_phone: '+38521782059'
+                                contact_email: info@locastic.com
+                                translations:
+                                    en_US:
+                                        name: "Locastic Store Firule"
+                                        slug: "locastic-store-firule"
+                                        meta_title: "Locastic Store Firule"
+                                        meta_description: "Mobile and web development agency, store firule"
+                                        meta_keywords: "mobile, web, split, croatia, store, firule, locastic"
+                                        content: |
+                                               <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. </p>
+                                               <ul>
+                                                   <li>Morbi in sem quis dui placerat ornare. Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. Sed arcu. Cras consequat.</li>
+                                                   <li>Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus.</li>
+                                                   <li>Phasellus ultrices nulla quis nibh. Quisque a lectus. Donec consectetuer ligula vulputate sem tristique cursus. Nam nulla quam, gravida non, commodo a, sodales sit amet, nisi.</li>
+                                                   <li>Pellentesque fermentum dolor. Aliquam quam lectus, facilisis auctor, ultrices ut, elementum vulputate, nunc.</li>
+                                               </ul>
+                                               <p>Pellentesque habitant morbi tristique sene</p>
+                                        working_time: Mon-Fri 09-17h
