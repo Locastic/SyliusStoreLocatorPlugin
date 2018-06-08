@@ -2,6 +2,8 @@
 
 (function ($) {
 
+    /** global: google */
+
     var latitudeInput = $('#locastic_sylius_store_locator_plugin_store_latitude');
     var longitudeInput = $('#locastic_sylius_store_locator_plugin_store_longitude');
     var addressInput = document.getElementById('locastic_sylius_store_locator_plugin_store_address');
