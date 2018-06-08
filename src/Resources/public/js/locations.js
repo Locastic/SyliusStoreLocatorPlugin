@@ -4,13 +4,14 @@
 
     var latitudeInput = $('#locastic_sylius_store_locator_plugin_store_latitude');
     var longitudeInput = $('#locastic_sylius_store_locator_plugin_store_longitude');
+    var addressInput = $('#locastic_sylius_store_locator_plugin_store_address');
 
     var mapsLoaded = window.google && window.google.maps;
     var map = {
         element: $('#mapHolder'),
         config: {
             mapTypeId: mapsLoaded && google.maps.MapTypeId.ROADMAP,
-            zoom: 16,
+            zoom: 6,
             center: mapsLoaded && new google.maps.LatLng(latitudeInput.val(), longitudeInput.val())
         },
         markers: [],
@@ -47,9 +48,6 @@
             return;
         }
 
-        console.log(latitudeInput.val());
-        console.log(longitudeInput.val());
-
         var markerConfig = {
             position: {
                 lat: Number(latitudeInput.val()),
@@ -71,16 +69,36 @@
         map.instance.fitBounds(map.bounds);
     };
 
+
+    map.setAddress = function () {
+        var latlng = {
+            lat: Number(latitudeInput.val()),
+            lng: Number(longitudeInput.val())
+        };
+
+        var geocoder = new google.maps.Geocoder;
+
+        geocoder.geocode({'location': latlng}, function (results, status) {
+            if (status === 'OK') {
+                if (results[0]) {
+                    addressInput.val(results[0].formatted_address);
+                }
+            }
+        });
+    };
+
     map.instance = mapsLoaded && new google.maps.Map(map.element.get(0), map.config);
 
     map.setMarkers();
 
-    latitudeInput.change(function () {
+    latitudeInput.keyup(function () {
         map.setMarkers();
+        map.setAddress();
     });
 
-    longitudeInput.change(function () {
+    longitudeInput.keyup(function () {
         map.setMarkers();
+        map.setAddress();
     });
 
 }(window.jQuery));
