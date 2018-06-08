@@ -29,6 +29,10 @@ class Store implements StoreInterface
 
     protected $contactEmail;
 
+    protected $address;
+
+    protected $workingTime;
+
 
     public function __construct()
     {
@@ -40,6 +44,11 @@ class Store implements StoreInterface
     public function getId(): ?int
     {
         return $this->id;
+    }
+
+    public function setId(?int $id): void
+    {
+        $this->id = $id;
     }
 
     public function getCode(): ?string
@@ -54,7 +63,7 @@ class Store implements StoreInterface
 
     public function getLatitude(): ?float
     {
-        return $this->latitude;
+        return (float)$this->latitude;
     }
 
     public function setLatitude(?float $latitude): void
@@ -64,7 +73,7 @@ class Store implements StoreInterface
 
     public function getLongitude(): ?float
     {
-        return $this->longitude;
+        return (float)$this->longitude;
     }
 
     public function setLongitude(?float $longitude): void
@@ -92,9 +101,20 @@ class Store implements StoreInterface
         $this->contactEmail = $contactEmail;
     }
 
+
+    public function getAddress(): ?string
+    {
+        return $this->address;
+    }
+
+    public function setAddress(?string $address): void
+    {
+        $this->address = $address;
+    }
+
     public function getSlug(): ?string
     {
-        $this->getTranslation()->getSlug();
+        return $this->getTranslation()->getSlug();
     }
 
     public function setSlug(?string $slug): void
@@ -152,7 +172,17 @@ class Store implements StoreInterface
         $this->getTranslation()->setContent($content);
     }
 
-    protected function getPageTranslation(): StoreTranslationInterface
+    public function getWorkingTime(): ?string
+    {
+        return $this->workingTime;
+    }
+
+    public function setWorkingTime(?string $workingTime): void
+    {
+        $this->workingTime = $workingTime;
+    }
+
+    protected function getStoreTranslation(): StoreTranslationInterface
     {
         return $this->getTranslation();
     }

@@ -8,3 +8,4 @@ sylius_resource:
             translation:
                 classes:
                     model: Locastic\SyliusStoreLocatorPlugin\Entity\StoreTranslation
+                    form: Locastic\SyliusStoreLocatorPlugin\Form\Type\Translation\StoreTranslationType

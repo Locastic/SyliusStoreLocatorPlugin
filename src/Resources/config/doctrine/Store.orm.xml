@@ -14,10 +14,12 @@
         </id>
 
         <field name="code" column="code" length="255" unique="true"/>
-        <field name="latitude" type="decimal" column="latitude" precision="11" scale="8" nullable="true"/>
-        <field name="longitude" type="decimal" column="longitude" precision="11" scale="8" nullable="true"/>
+        <field name="latitude" type="decimal" column="latitude" precision="15" scale="8" nullable="true"/>
+        <field name="longitude" type="decimal" column="longitude" precision="15" scale="8" nullable="true"/>
         <field name="contactPhone" column="contact_phone" length="255" nullable="true"/>
         <field name="contactEmail" column="contact_email" length="255" nullable="true"/>
+        <field name="address" column="address" length="255" nullable="true"/>
+        <field name="workingTime" column="working_time" type="text" nullable="true"/>
 
         <field name="enabled" type="boolean" column="enabled"/>
 

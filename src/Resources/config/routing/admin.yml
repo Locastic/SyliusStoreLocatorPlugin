@@ -10,6 +10,8 @@ locastic_sylius_store_locator_plugin_admin_store:
             all:
                 header: locastic_sylius_store_locator_plugin.ui.stores
                 subheader: locastic_sylius_store_locator_plugin.ui.manage_stores
+                templates:
+                    form: LocasticSyliusStoreLocatorPlugin:Store:Crud/_form.html.twig
             index:
                 icon: 'map marker alternate'
     type: sylius.resource

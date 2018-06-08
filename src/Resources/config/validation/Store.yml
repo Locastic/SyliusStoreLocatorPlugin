@@ -1,0 +1,15 @@
+Locastic\SyliusStoreLocatorPlugin\Entity\Store:
+    constraints:
+        - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity:
+            fields: [code]
+            groups: ['locastic']
+    properties:
+        code:
+            - NotBlank:
+                groups: ['locastic']
+            - Length:
+                min: 2
+                max: 255
+                groups: ['locastic']
+        translations:
+            - Valid: ~

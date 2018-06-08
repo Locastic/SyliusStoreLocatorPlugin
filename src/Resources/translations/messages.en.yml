@@ -10,3 +10,11 @@ locastic_sylius_store_locator_plugin:
         meta_keywords: Meta keywords
         code: Code
         enabled: Enabled
+        latitude: Latitude
+        longitude: Longitude
+        contact_phone: Contact Phone
+        contact_email: Contact Email
+        content: Content
+        translations: Translations
+        address: Address
+        working_time: Working time

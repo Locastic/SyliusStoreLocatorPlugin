@@ -2,3 +2,7 @@ imports:
     - { resource: "@LocasticSyliusStoreLocatorPlugin/Resources/config/resources.yml" }
     - { resource: "@LocasticSyliusStoreLocatorPlugin/Resources/config/grids.yml" }
     - { resource: "@LocasticSyliusStoreLocatorPlugin/Resources/config/services.yml" }
+
+twig:
+    globals:
+        gmap_api_key: '%gmap_api_key%'
