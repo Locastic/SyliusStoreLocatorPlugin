@@ -7,10 +7,6 @@
         {
             "name": "Locastic",
             "email": "info@locastic.com"
-        },
-        {
-            "name": "Antonio Peric-Mazar",
-            "email": "antonio@locastic.com"
         }
     ],
     "require": {
