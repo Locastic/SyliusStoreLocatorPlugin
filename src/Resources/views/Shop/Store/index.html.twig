@@ -3,6 +3,12 @@
 {% extends '@SyliusShop/layout.html.twig' %}
 
 {% block content %}
+    <div class="ui breadcrumb">
+        <a href="{{ path('sylius_shop_homepage') }}" class="section">{{ 'sylius.ui.home'|trans }}</a>
+        <div class="divider"> /</div>
+        <div class="active section">{{ 'locastic_sylius_store_locator_plugin.ui.store_locator'|trans }}</div>
+    </div>
+
     <h1 class="ui header">
         {{ 'locastic_sylius_store_locator_plugin.ui.store_locator'|trans }}
     </h1>
