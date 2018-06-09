@@ -2,6 +2,24 @@
 
 {% extends '@SyliusShop/layout.html.twig' %}
 
+
+{% block title %}
+    {% if store.metaTitle %}
+        {{ store.metaTitle }}
+    {% else %}
+        {{ store.title }}
+    {% endif %}
+{% endblock %}
+
+{% block metatags %}
+    {% if store.metaKeywords is not empty %}
+        <meta name="keywords" content="{{ store.metaKeywords }}"/>
+    {% endif %}
+    {% if store.metaDescription is not empty %}
+        <meta name="description" content="{{ store.metaDescription }}"/>
+    {% endif %}
+{% endblock %}
+
 {% block content %}
     <div class="ui breadcrumb">
         <a href="{{ path('sylius_shop_homepage') }}" class="section">{{ 'sylius.ui.home'|trans }}</a>
