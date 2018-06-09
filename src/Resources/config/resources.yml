@@ -5,6 +5,7 @@ sylius_resource:
             classes:
                 model: Locastic\SyliusStoreLocatorPlugin\Entity\Store
                 form: Locastic\SyliusStoreLocatorPlugin\Form\Type\StoreType
+                repository: Locastic\SyliusStoreLocatorPlugin\Repository\StoreRepository
             translation:
                 classes:
                     model: Locastic\SyliusStoreLocatorPlugin\Entity\StoreTranslation

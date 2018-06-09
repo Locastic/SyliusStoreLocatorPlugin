@@ -4,14 +4,14 @@
 
     /** global: google */
 
-    var latitudeInput = $('#locastic_sylius_store_locator_plugin_store_latitude');
-    var longitudeInput = $('#locastic_sylius_store_locator_plugin_store_longitude');
-    var addressInput = document.getElementById('locastic_sylius_store_locator_plugin_store_address');
-    var autocomplete = new google.maps.places.Autocomplete(addressInput);
+    let latitudeInput = $('#locastic_sylius_store_locator_plugin_store_latitude');
+    let longitudeInput = $('#locastic_sylius_store_locator_plugin_store_longitude');
+    let addressInput = document.getElementById('locastic_sylius_store_locator_plugin_store_address');
+    let autocomplete = new google.maps.places.Autocomplete(addressInput);
 
 
-    var mapsLoaded = window.google && window.google.maps;
-    var map = {
+    let mapsLoaded = window.google && window.google.maps;
+    let map = {
         element: $('#mapHolder'),
         config: {
             mapTypeId: mapsLoaded && google.maps.MapTypeId.ROADMAP,
@@ -23,7 +23,7 @@
     };
 
     autocomplete.addListener('place_changed', function () {
-        var latlng = autocomplete.getPlace().geometry.location;
+        let latlng = autocomplete.getPlace().geometry.location;
 
         latitudeInput.val(latlng.lat);
         longitudeInput.val(latlng.lng);
@@ -33,9 +33,9 @@
 
 
     map.getMarkerById = function (id) {
-        var i = 0;
+        let i = 0;
         for (; i < map.markers.length; i++) {
-            if (map.markers[i].locationId == id) {
+            if (map.markers[i].locationId === id) {
                 console.log(map.markers[i]);
                 return map.markers[i];
             }
@@ -61,7 +61,7 @@
             return;
         }
 
-        var markerConfig = {
+        let markerConfig = {
             position: {
                 lat: Number(latitudeInput.val()),
                 lng: Number(longitudeInput.val())
@@ -69,7 +69,7 @@
             map: map.instance
         };
 
-        var marker = new google.maps.Marker(markerConfig);
+        let marker = new google.maps.Marker(markerConfig);
 
         map.markers.push(marker);
 
@@ -82,12 +82,12 @@
 
 
     map.setAddress = function () {
-        var latlng = {
+        let latlng = {
             lat: Number(latitudeInput.val()),
             lng: Number(longitudeInput.val())
         };
 
-        var geocoder = new google.maps.Geocoder;
+        let geocoder = new google.maps.Geocoder;
 
         geocoder.geocode({'location': latlng}, function (results, status) {
             if (status === 'OK') {
@@ -101,7 +101,7 @@
     map.instance = mapsLoaded && new google.maps.Map(map.element.get(0), map.config);
 
     google.maps.event.addListener(map.instance, 'click', function(event) {
-        var latlng = event.latLng;
+        let latlng = event.latLng;
 
         latitudeInput.val(latlng.lat);
         longitudeInput.val(latlng.lng);

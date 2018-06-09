@@ -11,3 +11,17 @@ locastic_sylius_store_locator_plugin_shop_store_index:
             sortable: true
             sorting:
                 code: asc
+
+
+locastic_sylius_store_locator_plugin_shop_store_show:
+    path: /{slug}
+    methods: [GET]
+    defaults:
+        _controller: locastic_sylius_store_locator_plugin.controller.store:showAction
+        _sylius:
+            template: "@LocasticSyliusStoreLocatorPlugin/Shop/Store/show.html.twig"
+            repository:
+                method: findOneEnabledBySlug
+                arguments:
+                    - $slug
+                    - "expr:service('sylius.context.locale').getLocaleCode()"
