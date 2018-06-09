@@ -12,7 +12,7 @@
             <generator strategy="IDENTITY"/>
         </id>
 
-        <field name="slug" column="slug" length="255" unique="true"/>
+        <field name="slug" column="slug" length="255"/>
         <field name="name" column="name" length="255" />
         <field name="content" column="content" type="text" nullable="true"/>
         <field name="workingTime" column="working_time" type="text" nullable="true"/>
