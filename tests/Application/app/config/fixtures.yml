@@ -32,7 +32,7 @@ sylius_fixtures:
                                                    <li>Pellentesque fermentum dolor. Aliquam quam lectus, facilisis auctor, ultrices ut, elementum vulputate, nunc.</li>
                                                </ul>
                                                <p>Pellentesque habitant morbi tristique sene</p>
-                                        working_time: Mon-Fri 09-17h
+                                        opening_hours: Mon-Fri 09-17h
 
                             locastic_store_stinice:
                                 latitude: 43.52403381
@@ -56,7 +56,7 @@ sylius_fixtures:
                                                    <li>Pellentesque fermentum dolor. Aliquam quam lectus, facilisis auctor, ultrices ut, elementum vulputate, nunc.</li>
                                                </ul>
                                                <p>Pellentesque habitant morbi tristique sene</p>
-                                        working_time: Mon-Fri 09-17h
+                                        opening_hours: Mon-Fri 09-17h
 
                             locastic_store_firule:
                                 latitude: 43.502298
@@ -80,4 +80,4 @@ sylius_fixtures:
                                                    <li>Pellentesque fermentum dolor. Aliquam quam lectus, facilisis auctor, ultrices ut, elementum vulputate, nunc.</li>
                                                </ul>
                                                <p>Pellentesque habitant morbi tristique sene</p>
-                                        working_time: Mon-Fri 09-17h
+                                        opening_hours: Mon-Fri 09-17h

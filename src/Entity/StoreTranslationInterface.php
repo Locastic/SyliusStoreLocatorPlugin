@@ -33,7 +33,7 @@ interface StoreTranslationInterface extends ResourceInterface, TranslationInterf
 
     public function setContent(?string $content): void;
 
-    public function getWorkingTime(): ?string;
+    public function getOpeningHours(): ?string;
 
-    public function setWorkingTime(?string $workingTime): void;
+    public function setOpeningHours(?string $workingTime): void;
 }

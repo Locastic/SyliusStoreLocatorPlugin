@@ -24,8 +24,8 @@ final class StoreTranslationType extends AbstractResourceType
                 'label' => 'locastic_sylius_store_locator_plugin.ui.content',
                 'required' => false,
             ])
-            ->add('workingTime', TextareaType::class, [
-                'label' => 'locastic_sylius_store_locator_plugin.ui.working_time',
+            ->add('openingHours', TextareaType::class, [
+                'label' => 'locastic_sylius_store_locator_plugin.ui.opening_hours',
                 'required' => false,
             ])
             ->add('metaTitle', TextType::class, [

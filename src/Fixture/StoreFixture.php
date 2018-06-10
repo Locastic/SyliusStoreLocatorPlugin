@@ -32,7 +32,7 @@ final class StoreFixture extends AbstractFixture
                 $pageTranslation->setName($translation['name']);
                 $pageTranslation->setSlug($translation['slug']);
                 $pageTranslation->setContent($translation['content']);
-                $pageTranslation->setWorkingTime($translation['working_time']);
+                $pageTranslation->setOpeningHours($translation['opening_hours']);
                 $pageTranslation->setMetaTitle($translation['meta_title']);
                 $pageTranslation->setMetaDescription($translation['meta_description']);
                 $pageTranslation->setMetaKeywords($translation['meta_keywords']);
@@ -80,7 +80,7 @@ final class StoreFixture extends AbstractFixture
                                         ->scalarNode('meta_keywords')->defaultNull()->end()
                                         ->scalarNode('meta_description')->defaultNull()->end()
                                         ->scalarNode('content')->defaultNull()->end()
-                                        ->scalarNode('working_time')->defaultNull()->end()
+                                        ->scalarNode('opening_hours')->defaultNull()->end()
                                     ->end()
                                 ->end()
                             ->end()

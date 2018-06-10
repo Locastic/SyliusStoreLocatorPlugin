@@ -16,7 +16,7 @@ class StoreTranslation extends AbstractTranslation implements StoreTranslationIn
 
     protected $content;
 
-    protected $workingTime;
+    protected $openingHours;
 
     protected $metaTitle;
 
@@ -61,14 +61,14 @@ class StoreTranslation extends AbstractTranslation implements StoreTranslationIn
         return $this->content;
     }
 
-    public function setWorkingTime(?string $workingTime): void
+    public function setOpeningHours(?string $openingHours): void
     {
-        $this->workingTime = $workingTime;
+        $this->openingHours = $openingHours;
     }
 
-    public function getWorkingTime(): ?string
+    public function getOpeningHours(): ?string
     {
-        return $this->workingTime;
+        return $this->openingHours;
     }
 
     public function setContent(?string $content): void

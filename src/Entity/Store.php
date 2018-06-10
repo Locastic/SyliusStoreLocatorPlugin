@@ -169,14 +169,14 @@ class Store implements StoreInterface
         $this->getTranslation()->setContent($content);
     }
 
-    public function getWorkingTime(): ?string
+    public function getOpeningHours(): ?string
     {
-        return $this->getTranslation()->getWorkingTime();
+        return $this->getTranslation()->getOpeningHours();
     }
 
-    public function setWorkingTime(?string $workingTime): void
+    public function setOpeningHours(?string $openingHours): void
     {
-        $this->getTranslation()->setWorkingTime($workingTime);
+        $this->getTranslation()->setOpeningHours($openingHours);
     }
 
     protected function getStoreTranslation(): StoreTranslationInterface

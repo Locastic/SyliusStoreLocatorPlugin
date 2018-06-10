@@ -47,7 +47,7 @@
                 <strong>{{ 'locastic_sylius_store_locator_plugin.ui.contact_phone'|trans }}
                     : </strong>{{ store.contactPhone }}</p>
             <p>
-                <strong itemprop="openingHoursSpecification">{{ 'locastic_sylius_store_locator_plugin.ui.working_time'|trans }}
+                <strong itemprop="openingHoursSpecification">{{ 'locastic_sylius_store_locator_plugin.ui.opening_hours'|trans }}
                     : </strong>{{ store.workingTime|raw }}</p>
 
             <div itemprop="description">
@@ -55,41 +55,7 @@
             </div>
 
         </div>
-
     </div>
-
-
-
-
-    {#{% if resources|length > 0 %}#}
-
-
-    {#<div class="ui stackable grid">#}
-    {#<div class="four twelve column">#}
-    {#<div class="ui three column stackable grid" id="products">#}
-    {#{% for store in resources %}#}
-    {#<div class="column">#}
-    {#<div class="ui fluid card store-location" itemscope itemtype="http://schema.org/Place" data-lat="{{ store.latitude }}" data-lng="{{ store.longitude }}">#}
-    {#<div class="content">#}
-    {#<h3 itemprop="name"><a href="">{{ store.name }}</a></h3>#}
-    {#<p itemprop="address">{{ store.address }}</p>#}
-    {#<p><strong>{{ 'locastic_sylius_store_locator_plugin.ui.contact_email'|trans }}#}
-    {#: </strong>{{ store.contactEmail }}</p>#}
-    {#<p itemprop="telephone">#}
-    {#<strong>{{ 'locastic_sylius_store_locator_plugin.ui.contact_phone'|trans }}#}
-    {#: </strong>{{ store.contactPhone }}</p>#}
-    {#<p>#}
-    {#<strong itemprop="openingHoursSpecification">{{ 'locastic_sylius_store_locator_plugin.ui.working_time'|trans }}#}
-    {#: </strong>{{ store.workingTime }}</p>#}
-    {#<a href="">{{ 'locastic_sylius_store_locator_plugin.ui.see_more'|trans }}</a>#}
-    {#</div>#}
-    {#</div>#}
-    {#</div>#}
-    {#</a>#}
-    {#{% endfor %}#}
-    {#</div>#}
-    {#</div>#}
-    {#</div>#}
 {% endblock %}
 
 {% block javascripts %}

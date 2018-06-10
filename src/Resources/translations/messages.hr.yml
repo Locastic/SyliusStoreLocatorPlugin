@@ -1,0 +1,21 @@
+locastic_sylius_store_locator_plugin:
+    ui:
+        store_locator: Lokacija trgovina
+        manage_stores: Upravljanje lokacijama trgovina
+        stores: Trgovine
+        name: Nazvi trgovine
+        slug: Slug
+        meta_title: Meta naslov
+        meta_description: Meta opis
+        meta_keywords: Meta ključne riječi
+        code: Kod
+        enabled: Omoguči
+        latitude: Geografska širina
+        longitude: Geografska dužina
+        contact_phone: Kontakt telefon
+        contact_email: Kontakt email
+        content: Sadržaj (Opis trgovine)
+        translations: Prijevodi
+        address: Adresa
+        opening_hours: Radno vrijeme
+        see_more: Pogledaj više

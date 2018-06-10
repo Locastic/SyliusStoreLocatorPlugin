@@ -15,7 +15,7 @@
         <field name="slug" column="slug" length="255"/>
         <field name="name" column="name" length="255" />
         <field name="content" column="content" type="text" nullable="true"/>
-        <field name="workingTime" column="working_time" type="text" nullable="true"/>
+        <field name="openingHours" column="opening_hours" type="text" nullable="true"/>
         <field name="metaTitle" column="meta_title" length="255" nullable="true"/>
         <field name="metaDescription" column="meta_description" length="255" nullable="true"/>
         <field name="metaKeywords" column="meta_keywords" length="255" nullable="true"/>

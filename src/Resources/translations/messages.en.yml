@@ -17,5 +17,5 @@ locastic_sylius_store_locator_plugin:
         content: Content
         translations: Translations
         address: Address
-        working_time: Working time
+        opening_hours: Opening hours
         see_more: See More
