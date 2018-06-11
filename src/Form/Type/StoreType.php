@@ -47,6 +47,10 @@ final class StoreType extends AbstractResourceType
                 'label' => 'locastic_sylius_store_locator_plugin.ui.address',
                 'required' => false,
             ])
+            ->add('pickupAtStoreAvailable', CheckboxType::class, [
+                'label' => 'locastic_sylius_store_locator_plugin.ui.pickup_at_store_available',
+                'required' => false,
+            ])
             ->add('translations', ResourceTranslationsType::class, [
                 'label' => 'locastic_sylius_store_locator_plugin.ui.translations',
                 'entry_type' => StoreTranslationType::class,

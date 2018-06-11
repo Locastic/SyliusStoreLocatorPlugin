@@ -1,0 +1,3 @@
+Locastic\SyliusStoreLocatorPlugin\Entity\Shipment:
+    constraints:
+        - Callback: validate

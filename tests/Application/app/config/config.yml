@@ -11,6 +11,7 @@ imports:
 
     - { resource: "../../../../vendor/sylius/sylius/app/config/security.yml" }
     - { resource: "@LocasticSyliusStoreLocatorPlugin/Resources/config/config.yml" }
+    - { resource: "@LocasticSyliusStoreLocatorPlugin/Resources/config/config_pickup_at_store.yml" }
     - { resource: "fixtures.yml" }
 
 framework:

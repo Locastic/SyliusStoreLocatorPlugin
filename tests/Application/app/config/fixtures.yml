@@ -16,6 +16,7 @@ sylius_fixtures:
                                 address: Lovački put 7, 21000, Split, Croatia
                                 contact_phone: '+38521782059'
                                 contact_email: info@locastic.com
+                                pickup_at_store_available: true
                                 translations:
                                     en_US:
                                         name: "Locastic Store Dragovode"
@@ -40,6 +41,7 @@ sylius_fixtures:
                                 address: Stinice 12, 21000, Split, Croatia
                                 contact_phone: '+38521782059'
                                 contact_email: info@locastic.com
+                                pickup_at_store_available: true
                                 translations:
                                     en_US:
                                         name: "Locastic Store Stinice"
@@ -64,6 +66,7 @@ sylius_fixtures:
                                 address: Rooseweltova 52, 21000, Split, Croatia
                                 contact_phone: '+38521782059'
                                 contact_email: info@locastic.com
+                                pickup_at_store_available: false
                                 translations:
                                     en_US:
                                         name: "Locastic Store Firule"

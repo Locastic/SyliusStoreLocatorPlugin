@@ -19,3 +19,5 @@ locastic_sylius_store_locator_plugin:
         address: Adresa
         opening_hours: Radno vrijeme
         see_more: Pogledaj više
+        pickup_at_store_available: Dostupno preuzimanje u trgovini
+        pickup_at_location: Preuzimanje u trgovini

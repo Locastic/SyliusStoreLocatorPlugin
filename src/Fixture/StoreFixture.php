@@ -45,6 +45,7 @@ final class StoreFixture extends AbstractFixture
             $store->setAddress($option['address']);
             $store->setContactEmail($option['contact_email']);
             $store->setContactPhone($option['contact_phone']);
+            $store->setPickupAtStoreAvailable($option['pickup_at_store_available']);
 
             $this->storeManager->persist($store);
         }
@@ -71,6 +72,7 @@ final class StoreFixture extends AbstractFixture
                             ->scalarNode('address')->defaultNull()->end()
                             ->scalarNode('contact_phone')->defaultNull()->end()
                             ->scalarNode('contact_email')->defaultNull()->end()
+                            ->scalarNode('pickup_at_store_available')->defaultTrue()->end()
                             ->arrayNode('translations')
                                 ->prototype('array')
                                     ->children()

@@ -31,6 +31,8 @@ class Store implements StoreInterface
 
     protected $address;
 
+    protected $pickupAtStoreAvailable;
+
     public function __construct()
     {
         $this->initializeTranslationsCollection();
@@ -177,6 +179,16 @@ class Store implements StoreInterface
     public function setOpeningHours(?string $openingHours): void
     {
         $this->getTranslation()->setOpeningHours($openingHours);
+    }
+
+    public function setPickupAtStoreAvailable(bool $pickupAtStoreAvailable): void
+    {
+        $this->pickupAtStoreAvailable = $pickupAtStoreAvailable;
+    }
+
+    public function isPickupAtStoreAvailable(): ?bool
+    {
+        return $this->pickupAtStoreAvailable;
     }
 
     protected function getStoreTranslation(): StoreTranslationInterface

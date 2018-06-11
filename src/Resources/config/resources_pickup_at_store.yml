@@ -1,0 +1,8 @@
+sylius_shipping:
+    resources:
+        shipping_method:
+            classes:
+                model: Locastic\SyliusStoreLocatorPlugin\Entity\ShippingMethod
+ #       shipment:
+  #          classes:
+   #             model: Locastic\SyliusStoreLocatorPlugin\Entity\Shipment
