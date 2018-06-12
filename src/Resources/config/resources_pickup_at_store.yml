@@ -3,6 +3,6 @@ sylius_shipping:
         shipping_method:
             classes:
                 model: Locastic\SyliusStoreLocatorPlugin\Entity\ShippingMethod
- #       shipment:
-  #          classes:
-   #             model: Locastic\SyliusStoreLocatorPlugin\Entity\Shipment
+        shipment:
+            classes:
+                model: Locastic\SyliusStoreLocatorPlugin\Entity\Shipment

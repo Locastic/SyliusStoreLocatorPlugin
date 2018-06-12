@@ -1,3 +1,4 @@
 Locastic\SyliusStoreLocatorPlugin\Entity\Shipment:
     constraints:
-        - Callback: validate
+        - Locastic\SyliusStoreLocatorPlugin\Validator\Constraints\IsStorePopulated:
+            groups: ['sylius']

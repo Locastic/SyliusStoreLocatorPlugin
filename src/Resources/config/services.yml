@@ -22,6 +22,7 @@ services:
         tags:
             - { name: form.type }
 
+
 # fixtures
     locastic_sylius_store_locator_plugin.fixture.store:
         class: Locastic\SyliusStoreLocatorPlugin\Fixture\StoreFixture

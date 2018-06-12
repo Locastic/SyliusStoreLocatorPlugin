@@ -7,10 +7,6 @@ use Symfony\Component\Form\AbstractTypeExtension;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\FormBuilderInterface;
 
-/**
- * Class ShippingMethodTypeExtension
- * @package Locastic\SyliusStoreLocatorPlugin\Form\Extension\Checkout
- */
 final class ShippingMethodTypeExtension extends AbstractTypeExtension
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
@@ -27,11 +23,6 @@ final class ShippingMethodTypeExtension extends AbstractTypeExtension
 
     }
 
-    /**
-     * Returns the name of the type being extended.
-     *
-     * @return string The name of the type being extended
-     */
     public function getExtendedType()
     {
         return ShippingMethodType::class;
