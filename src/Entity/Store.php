@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Locastic\SyliusStoreLocatorPlugin\Entity;
 
-
 use Sylius\Component\Resource\Model\TimestampableTrait;
 use Sylius\Component\Resource\Model\ToggleableTrait;
 use Sylius\Component\Resource\Model\TranslatableTrait;

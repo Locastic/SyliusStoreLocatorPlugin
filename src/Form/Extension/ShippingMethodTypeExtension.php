@@ -20,7 +20,6 @@ final class ShippingMethodTypeExtension extends AbstractTypeExtension
                     'required' => false,
                 ]
             );
-
     }
 
     public function getExtendedType()

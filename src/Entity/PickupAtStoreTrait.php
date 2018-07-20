@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Locastic\SyliusStoreLocatorPlugin\Entity;
 
-
 trait PickupAtStoreTrait
 {
     protected $store;

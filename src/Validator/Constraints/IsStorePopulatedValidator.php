@@ -9,7 +9,7 @@ class IsStorePopulatedValidator extends ConstraintValidator
 {
     public function validate($value, Constraint $constraint)
     {
-        if ($value->getMethod()->isPickupAtLocation() && is_null($value->getStore())) {
+        if ($value->getMethod()->isPickupAtLocation() && $value->getStore() === null) {
             $this->context
                 ->buildViolation($constraint->message)
                 ->atPath('method')

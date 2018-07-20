@@ -2,10 +2,9 @@
 
 namespace Locastic\SyliusStoreLocatorPlugin\Entity;
 
-
 trait PickupAtLocationTrait
 {
-    private $pickupAtLocation;
+    protected $pickupAtLocation;
 
     public function __construct()
     {
@@ -21,5 +20,4 @@ trait PickupAtLocationTrait
     {
         $this->pickupAtLocation = $pickupAtLocation;
     }
-
 }

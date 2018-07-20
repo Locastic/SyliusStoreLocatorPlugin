@@ -30,7 +30,6 @@ final class ShipmentTypeExtension extends AbstractTypeExtension
                 'choice_label' => 'name',
             ]
         );
-
     }
 
     public function getExtendedType(): string
