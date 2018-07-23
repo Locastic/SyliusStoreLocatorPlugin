@@ -34,6 +34,12 @@
             {{ form_row(form.contactEmail) }}
         </div>
     </div>
+    <div class="column">
+        <div class="ui segment">
+            {{ form_errors(form) }}
+            {{ form_row(form.images) }}
+        </div>
+    </div>
 </div>
 
 {% block javascripts %}

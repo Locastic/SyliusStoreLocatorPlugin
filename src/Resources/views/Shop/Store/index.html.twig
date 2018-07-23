@@ -40,7 +40,7 @@
                                             : </strong>{{ store.contactPhone }}</p>
                                     <p>
                                         <strong itemprop="openingHoursSpecification">{{ 'locastic_sylius_store_locator_plugin.ui.opening_hours'|trans }}
-                                            : </strong>{{ store.workingTime }}</p>
+                                            : </strong>{# {{ store.workingTime }} #}</p>
                                     <a href="{{ path('locastic_sylius_store_locator_plugin_shop_store_show', {slug: store.slug}) }}" title="{{ store.name }}">
                                         {{ 'locastic_sylius_store_locator_plugin.ui.see_more'|trans }}
                                     </a>

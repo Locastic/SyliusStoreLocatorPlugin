@@ -31,5 +31,11 @@
             <gedmo:timestampable on="update"/>
         </field>
 
+        <one-to-many field="images" target-entity="Locastic\SyliusStoreLocatorPlugin\Entity\StoreImage" mapped-by="owner" orphan-removal="true">
+            <cascade>
+                <cascade-all/>
+            </cascade>
+        </one-to-many>
+
     </mapped-superclass>
 </doctrine-mapping>

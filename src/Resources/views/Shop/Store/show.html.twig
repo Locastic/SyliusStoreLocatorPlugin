@@ -48,13 +48,24 @@
                     : </strong>{{ store.contactPhone }}</p>
             <p>
                 <strong itemprop="openingHoursSpecification">{{ 'locastic_sylius_store_locator_plugin.ui.opening_hours'|trans }}
-                    : </strong>{{ store.workingTime|raw }}</p>
+                    : </strong>{#{{ store.workingTime|raw }}#}</p>
 
             <div itemprop="description">
                 {{ store.content|raw }}
             </div>
 
         </div>
+
+    </div>
+    <div class="ui grid segment">
+        {% for storeImage in store.images %}
+        <div >
+
+                {% set imagePath = '/media/image/'~storeImage.path %}
+                <img class="" src="{{ imagePath }}" alt="" sizes="" height="100px" width="100px">
+
+        </div>
+            {% endfor %}
     </div>
 {% endblock %}
 

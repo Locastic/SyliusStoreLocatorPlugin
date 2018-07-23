@@ -4,10 +4,12 @@ declare(strict_types=1);
 
 namespace Locastic\SyliusStoreLocatorPlugin\Form\Type;
 
+use Locastic\SyliusStoreLocatorPlugin\Form\Type\Image\StoreImageType;
 use Locastic\SyliusStoreLocatorPlugin\Form\Type\Translation\StoreTranslationType;
 use Sylius\Bundle\ResourceBundle\Form\Type\AbstractResourceType;
 use Sylius\Bundle\ResourceBundle\Form\Type\ResourceTranslationsType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
+use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -55,6 +57,15 @@ final class StoreType extends AbstractResourceType
                 'label' => 'locastic_sylius_store_locator_plugin.ui.translations',
                 'entry_type' => StoreTranslationType::class,
             ])
+            ->add('images',
+                CollectionType::class, [
+                'entry_type' => StoreImageType::class,
+                'allow_add' => true,
+                'allow_delete' => true,
+                'by_reference' => false,
+                'label' => 'locastic_sylius_store_locator_plugin.ui.images',
+                'block_name' => 'entry',
+                ])
         ;
     }
 
