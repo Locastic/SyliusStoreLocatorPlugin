@@ -57,15 +57,15 @@ final class StoreType extends AbstractResourceType
                 'label' => 'locastic_sylius_store_locator_plugin.ui.translations',
                 'entry_type' => StoreTranslationType::class,
             ])
-            ->add('images',
-                CollectionType::class, [
+            ->add('images', CollectionType::class, [
                 'entry_type' => StoreImageType::class,
-                'allow_add' => true,
-                'allow_delete' => true,
+                'entry_options' => ['label' => false],
+                'allow_add' =>  true,
+                'allow_delete' =>  true,
                 'by_reference' => false,
+                'required' => true,
                 'label' => 'locastic_sylius_store_locator_plugin.ui.images',
-                'block_name' => 'entry',
-                ])
+            ])
         ;
     }
 

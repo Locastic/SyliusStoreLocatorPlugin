@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Locastic\SyliusStoreLocatorPlugin\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Sylius\Component\Core\Model\ImageInterface;
 use Sylius\Component\Resource\Model\TimestampableTrait;
@@ -42,6 +43,7 @@ class Store implements StoreInterface
         $this->initializeTranslationsCollection();
 
         $this->createdAt = new \DateTime();
+        $this->images = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -220,10 +222,13 @@ class Store implements StoreInterface
         return $this->images->contains($image);
     }
 
-    public function addImage(ImageInterface $image): void
+    public function addImage(?ImageInterface $image): void
     {
-        $image->setOwner($this);
-        $this->images->add($image);
+
+        if ($image->hasFile()) {
+            $image->setOwner($this);
+            $this->images->add($image);
+        }
     }
 
     public function removeImage(ImageInterface $image)
@@ -232,11 +237,6 @@ class Store implements StoreInterface
             $image->setOwner(null);
             $this->images->removeElement($image);
         }
-    }
-
-    public function setImages($images): void
-    {
-        $this->images = $images;
     }
 
 

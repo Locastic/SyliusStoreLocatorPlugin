@@ -66,6 +66,4 @@ interface StoreInterface extends ResourceInterface, ToggleableInterface, Timesta
     public function addImage(ImageInterface $image): void;
 
     public function removeImage(ImageInterface $image);
-
-    public function setImages($images): void;
 }

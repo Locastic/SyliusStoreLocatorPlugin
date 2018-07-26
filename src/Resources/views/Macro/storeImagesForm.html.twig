@@ -1,0 +1,28 @@
+{% macro storeImagesForm(storeImages, form) %}
+
+    {% import '@SyliusUi/Macro/flags.html.twig' as flags %}
+    {% import '@SyliusUi/Form/imagesTheme.html.twig' as theme %}
+    {% import '@LocasticSyliusStoreLocatorPlugin/Macro/imageWidget.html.twig' as image %}
+
+    <h4>
+        {{ 'locastic_sylius_store_locator_plugin.ui.images'|trans }}
+    </h4>
+
+    <div class="ui two column stackable grid" style="margin: 1%">
+        {% for storeImage in storeImages %}
+
+            <div class="column ui upload box segment" style="margin: unset; padding: 2%">
+            <li>
+                {% for field in form %}
+                    {% if 'images' == field.vars.name %}
+                        {%  set index = loop.parent.loop.index-1 %}
+                        {{ image.imageWidget(field.children[index], form, index) }}
+                     {% endif %}
+                {% endfor %}
+            </li>
+            </div>
+
+        {% endfor %}
+    </div>
+
+{% endmacro %}
