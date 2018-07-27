@@ -224,7 +224,6 @@ class Store implements StoreInterface
 
     public function addImage(?ImageInterface $image): void
     {
-
         if ($image->hasFile()) {
             $image->setOwner($this);
             $this->images->add($image);

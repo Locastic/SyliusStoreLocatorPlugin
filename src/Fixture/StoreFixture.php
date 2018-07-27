@@ -6,17 +6,38 @@ namespace Locastic\SyliusStoreLocatorPlugin\Fixture;
 
 use Doctrine\Common\Persistence\ObjectManager;
 use Locastic\SyliusStoreLocatorPlugin\Entity\Store;
+use Locastic\SyliusStoreLocatorPlugin\Entity\StoreImage;
+use Locastic\SyliusStoreLocatorPlugin\Entity\StoreImageInterface;
 use Locastic\SyliusStoreLocatorPlugin\Entity\StoreTranslation;
 use Sylius\Bundle\FixturesBundle\Fixture\AbstractFixture;
+use Sylius\Component\Core\Uploader\ImageUploaderInterface;
+use Sylius\Component\Resource\Factory\FactoryInterface;
 use Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 final class StoreFixture extends AbstractFixture
 {
+    /** @var ObjectManager */
     private $storeManager;
 
-    public function __construct(ObjectManager $storeManager)
+    /** @var FactoryInterface */
+    private $storeImageFactory;
+
+    /** @var ImageUploaderInterface */
+    private $imageUploader;
+
+    /**
+     * StoreFixture constructor.
+     *
+     * @param ObjectManager $storeManager
+     * @param FactoryInterface $storeImageFactory
+     * @param ImageUploaderInterface $imageUploader
+     */
+    public function __construct(ObjectManager $storeManager, FactoryInterface $storeImageFactory, ImageUploaderInterface $imageUploader)
     {
         $this->storeManager = $storeManager;
+        $this->storeImageFactory = $storeImageFactory;
+        $this->imageUploader = $imageUploader;
     }
 
     public function load(array $options): void
@@ -46,6 +67,29 @@ final class StoreFixture extends AbstractFixture
             $store->setContactEmail($option['contact_email']);
             $store->setContactPhone($option['contact_phone']);
             $store->setPickupAtStoreAvailable($option['pickup_at_store_available']);
+
+            foreach ($option['images'] as $image) {
+                if (!array_key_exists('path', $image)) {
+                    $imagePath = array_shift($image);
+                    $imageType = array_pop($image);
+                } else {
+                    $imagePath = $image['path'];
+                    $imageType = $image['type'] ?? null;
+                }
+
+                $uploadedImage = new UploadedFile($imagePath, basename($imagePath));
+
+                /** @var StoreImageInterface $storeImage */
+                $storeImage = new StoreImage();
+
+                $storeImage->setPath($imagePath);
+                $storeImage->setFile($uploadedImage);
+                $storeImage->setType($imageType);
+
+                $this->imageUploader->upload($storeImage);
+
+                $store->addImage($storeImage);
+            }
 
             $this->storeManager->persist($store);
         }
@@ -83,6 +127,14 @@ final class StoreFixture extends AbstractFixture
                                         ->scalarNode('meta_description')->defaultNull()->end()
                                         ->scalarNode('content')->defaultNull()->end()
                                         ->scalarNode('opening_hours')->defaultNull()->end()
+                                    ->end()
+                                ->end()
+                            ->end()
+                            ->arrayNode('images')
+                                ->prototype('array')
+                                    ->children()
+                                        ->scalarNode('type')->defaultNull()->end()
+                                        ->scalarNode('path')->defaultNull()->end()
                                     ->end()
                                 ->end()
                             ->end()

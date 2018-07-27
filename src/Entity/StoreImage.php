@@ -8,4 +8,5 @@ use Sylius\Component\Core\Model\Image;
 
 class StoreImage extends Image implements StoreImageInterface
 {
+
 }

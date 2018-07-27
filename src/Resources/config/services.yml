@@ -35,8 +35,11 @@ services:
         class: Locastic\SyliusStoreLocatorPlugin\Fixture\StoreFixture
         arguments:
             - '@locastic_sylius_store_locator_plugin.manager.store'
+            - '@sylius.custom_factory.order_item'
+            - '@sylius.image_uploader'
         tags:
             - { name: sylius_fixtures.fixture }
+
 
 # listeners
     locastic_sylius_store_locator_plugin.listener.images_upload:

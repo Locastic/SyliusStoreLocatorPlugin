@@ -12,4 +12,5 @@ class StoreImageType extends ImageType
     {
         return 'locastic_sylius_store_locator_plugin_store_image';
     }
+
 }
