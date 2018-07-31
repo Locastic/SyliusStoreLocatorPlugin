@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Locastic\SyliusStoreLocatorPlugin\Entity;
 
+use Doctrine\Common\Collections\Collection;
+use Sylius\Component\Core\Model\ImageInterface;
 use Sylius\Component\Resource\Model\ResourceInterface;
 use Sylius\Component\Resource\Model\TimestampableInterface;
 use Sylius\Component\Resource\Model\ToggleableInterface;
@@ -54,4 +56,14 @@ interface StoreInterface extends ResourceInterface, ToggleableInterface, Timesta
     public function getContent(): ?string;
 
     public function setContent(?string $content): void;
+
+    public function getImages(): Collection;
+
+    public function hasImages(): bool;
+
+    public function hasImage(?ImageInterface $image): bool;
+
+    public function addImage(ImageInterface $image): void;
+
+    public function removeImage(ImageInterface $image);
 }

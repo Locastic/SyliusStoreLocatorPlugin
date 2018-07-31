@@ -45,6 +45,20 @@ sylius_fixtures:
                                                </ul>
                                                <p>Pellentesque habitant morbi tristique sene</p>
                                         opening_hours: Mon-Fri 09-17h
+                                images:
+                                    dragovode_1:
+                                        type: "Office inside"
+                                        path: "%fixtures_dir%/office_1.jpg"
+                                    dragovode_2:
+                                        type: "Office desk"
+                                        path: "%fixtures_dir%/office_2.jpg"
+                                    dragovode_3:
+                                        type: "Office outside"
+                                        path: "%fixtures_dir%/sight_1.jpg"
+                                    dragovode_4:
+                                        type: "Living room"
+                                        path: "%fixtures_dir%/living_room.jpg"
+
 
                             locastic_store_stinice:
                                 latitude: 43.52403381
@@ -70,6 +84,17 @@ sylius_fixtures:
                                                </ul>
                                                <p>Pellentesque habitant morbi tristique sene</p>
                                         opening_hours: Mon-Fri 09-17h
+                                images:
+                                    stinice_1:
+                                        type: "Office inside"
+                                        path: "%fixtures_dir%/office_1.jpg"
+                                    stinice_2:
+                                        type: "Company logo"
+                                        path: "%fixtures_dir%/logo.jpg"
+                                    stinice_3:
+                                        type: "Office outside"
+                                        path: "%fixtures_dir%/sight_2.jpg"
+
 
                             locastic_store_firule:
                                 latitude: 43.502298
@@ -95,3 +120,13 @@ sylius_fixtures:
                                                </ul>
                                                <p>Pellentesque habitant morbi tristique sene</p>
                                         opening_hours: Mon-Fri 09-17h
+                                images:
+                                    firule_1:
+                                        type: "Office desk"
+                                        path: "%fixtures_dir%/office_2.jpg"
+                                    firule_2:
+                                        type: "View from office"
+                                        path: "%fixtures_dir%/view.jpg"
+                                    firule_3:
+                                        type: "Office inside"
+                                        path: "%fixtures_dir%/office_1.jpg"
