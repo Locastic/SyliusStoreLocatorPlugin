@@ -9,7 +9,7 @@ locastic_sylius_store_locator_plugin:
         meta_description: Meta opis
         meta_keywords: Meta ključne riječi
         code: Kod
-        enabled: Omoguči
+        enabled: Omogući
         latitude: Geografska širina
         longitude: Geografska dužina
         contact_phone: Kontakt telefon
@@ -19,3 +19,6 @@ locastic_sylius_store_locator_plugin:
         address: Adresa
         opening_hours: Radno vrijeme
         see_more: Pogledaj više
+        pickup_at_store_available: Dostupno preuzimanje u trgovini
+        pickup_at_location: Preuzimanje u trgovini
+        images: Slike trgovine

@@ -1,0 +1,3 @@
+locastic_sylius_store_locator_plugin:
+    shipment_method:
+          store_not_null: "You must select a store for pickup"

@@ -22,10 +22,33 @@ services:
         tags:
             - { name: form.type }
 
+    locastic.sylius_store_locator_plugin.form.type.image.store:
+        class: Locastic\SyliusStoreLocatorPlugin\Form\Type\Image\StoreImageType
+        arguments:
+            - "%locastic_sylius_store_locator_plugin.model.store_image.class%"
+            - ['locastic']
+        tags:
+            - { name: form.type }
+
 # fixtures
     locastic_sylius_store_locator_plugin.fixture.store:
         class: Locastic\SyliusStoreLocatorPlugin\Fixture\StoreFixture
         arguments:
             - '@locastic_sylius_store_locator_plugin.manager.store'
+            - '@sylius.custom_factory.order_item'
+            - '@sylius.image_uploader'
         tags:
             - { name: sylius_fixtures.fixture }
+
+
+# listeners
+    locastic_sylius_store_locator_plugin.listener.images_upload:
+        class: Locastic\SyliusStoreLocatorPlugin\EventListener\StoreImageUploadListener
+        parent: sylius.listener.images_upload
+        autowire: true
+        autoconfigure: false
+        public: false
+        tags:
+            - { name: kernel.event_listener, event: locastic_sylius_store_locator_plugin.store.pre_create, method: uploadImages }
+            - { name: kernel.event_listener, event: locastic_sylius_store_locator_plugin.store.pre_update, method: uploadImages }
+

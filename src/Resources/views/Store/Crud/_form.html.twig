@@ -1,12 +1,13 @@
 {% from '@LocasticSyliusStoreLocatorPlugin/Macro/translationForm.html.twig' import translationForm %}
+{% from '@LocasticSyliusStoreLocatorPlugin/Macro/storeImagesForm.html.twig' import storeImagesForm %}
 {% form_theme form '@LocasticSyliusStoreLocatorPlugin/Form/theme.html.twig' %}
-
 <div class="ui two column stackable grid">
     <div class="column">
         <div class="ui segment">
             {{ form_errors(form) }}
             {{ form_row(form.code) }}
             {{ form_row(form.enabled) }}
+            {{ form_row(form.pickupAtStoreAvailable) }}
         </div>
     </div>
 </div>
@@ -33,10 +34,22 @@
             {{ form_row(form.contactEmail) }}
         </div>
     </div>
+    <div class="column">
+        <div class="ui segment">
+            {{ form_errors(form) }}
+
+
+            <ul class="storeImages" style="list-style-type:none; margin-left: -40px" data-prototype="{{ form_widget(form.images.vars.prototype)|e('html_attr') }}" >
+                    {{ storeImagesForm(resource.images, form) }}
+            </ul>
+
+        </div>
+    </div>
 </div>
 
 {% block javascripts %}
     <script src="//maps.googleapis.com/maps/api/js?key={{ gmap_api_key }}&libraries=places"></script>
     {% include '@SyliusUi/_javascripts.html.twig' with {'path': 'assets/shop/js/app.js'} %}
     {% include '@SyliusUi/_javascripts.html.twig' with {'path': 'bundles/locasticsyliusstorelocatorplugin/js/locations.js'} %}
+    {% include '@SyliusUi/_javascripts.html.twig' with {'path': 'bundles/locasticsyliusstorelocatorplugin/js/locationImages.js'} %}
 {% endblock %}

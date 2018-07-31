@@ -48,13 +48,36 @@
                     : </strong>{{ store.contactPhone }}</p>
             <p>
                 <strong itemprop="openingHoursSpecification">{{ 'locastic_sylius_store_locator_plugin.ui.opening_hours'|trans }}
-                    : </strong>{{ store.workingTime|raw }}</p>
+                    : </strong>{{ store.openingHours|raw }}</p>
 
             <div itemprop="description">
                 {{ store.content|raw }}
             </div>
 
         </div>
+
+    </div>
+
+    <div class="container-fluid">
+        {% if store.images %}
+        <h3>
+            {{ 'locastic_sylius_store_locator_plugin.ui.images'|trans }}
+        </h3>
+
+        <div class="ui four cards">
+            {% for storeImage in store.images %}
+                <div class="ui fluid card">
+
+                    {% set imagePath = '/media/image/'~storeImage.path %}
+                    <img class="ui image dimmable" src="{{ imagePath }}" alt="" height="150px">
+
+                    <div class="content">
+                        <h2 class="header">{{ storeImage.type }}</h2>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        {% endif %}
     </div>
 {% endblock %}
 

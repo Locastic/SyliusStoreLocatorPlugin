@@ -7,6 +7,17 @@ sylius_fixtures:
             listeners:
                 logger: ~
             fixtures:
+                shipping_method:
+                    options:
+                        custom:
+                            pickup_at_store:
+                                code: "pickup_at_store"
+                                name: "Pickup at Store"
+                                is_pickup_at_store: true
+                                enabled: true
+                                channels:
+                                    - "US_WEB"
+
                 store:
                     options:
                         custom:
@@ -16,6 +27,7 @@ sylius_fixtures:
                                 address: Lovački put 7, 21000, Split, Croatia
                                 contact_phone: '+38521782059'
                                 contact_email: info@locastic.com
+                                pickup_at_store_available: true
                                 translations:
                                     en_US:
                                         name: "Locastic Store Dragovode"
@@ -33,6 +45,20 @@ sylius_fixtures:
                                                </ul>
                                                <p>Pellentesque habitant morbi tristique sene</p>
                                         opening_hours: Mon-Fri 09-17h
+                                images:
+                                    dragovode_1:
+                                        type: "Office inside"
+                                        path: "%fixtures_dir%/office_1.jpg"
+                                    dragovode_2:
+                                        type: "Office desk"
+                                        path: "%fixtures_dir%/office_2.jpg"
+                                    dragovode_3:
+                                        type: "Office outside"
+                                        path: "%fixtures_dir%/sight_1.jpg"
+                                    dragovode_4:
+                                        type: "Living room"
+                                        path: "%fixtures_dir%/living_room.jpg"
+
 
                             locastic_store_stinice:
                                 latitude: 43.52403381
@@ -40,6 +66,7 @@ sylius_fixtures:
                                 address: Stinice 12, 21000, Split, Croatia
                                 contact_phone: '+38521782059'
                                 contact_email: info@locastic.com
+                                pickup_at_store_available: true
                                 translations:
                                     en_US:
                                         name: "Locastic Store Stinice"
@@ -57,6 +84,17 @@ sylius_fixtures:
                                                </ul>
                                                <p>Pellentesque habitant morbi tristique sene</p>
                                         opening_hours: Mon-Fri 09-17h
+                                images:
+                                    stinice_1:
+                                        type: "Office inside"
+                                        path: "%fixtures_dir%/office_1.jpg"
+                                    stinice_2:
+                                        type: "Company logo"
+                                        path: "%fixtures_dir%/logo.jpg"
+                                    stinice_3:
+                                        type: "Office outside"
+                                        path: "%fixtures_dir%/sight_2.jpg"
+
 
                             locastic_store_firule:
                                 latitude: 43.502298
@@ -64,6 +102,7 @@ sylius_fixtures:
                                 address: Rooseweltova 52, 21000, Split, Croatia
                                 contact_phone: '+38521782059'
                                 contact_email: info@locastic.com
+                                pickup_at_store_available: false
                                 translations:
                                     en_US:
                                         name: "Locastic Store Firule"
@@ -81,3 +120,13 @@ sylius_fixtures:
                                                </ul>
                                                <p>Pellentesque habitant morbi tristique sene</p>
                                         opening_hours: Mon-Fri 09-17h
+                                images:
+                                    firule_1:
+                                        type: "Office desk"
+                                        path: "%fixtures_dir%/office_2.jpg"
+                                    firule_2:
+                                        type: "View from office"
+                                        path: "%fixtures_dir%/view.jpg"
+                                    firule_3:
+                                        type: "Office inside"
+                                        path: "%fixtures_dir%/office_1.jpg"

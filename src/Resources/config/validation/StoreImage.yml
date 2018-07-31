@@ -1,0 +1,16 @@
+Locastic\SyliusStoreLocatorPlugin\Entity\StoreImage:
+    properties:
+        file:
+            - Image:
+                groups: [sylius]
+                maxHeight: 1000
+                maxSize: 10240000
+                maxWidth: 1000
+                mimeTypes:
+                  - "image/png"
+                  - "image/jpg"
+                  - "image/jpeg"
+                  - "image/gif"
+                mimeTypesMessage: 'This file format is not allowed. Please use PNG, JPG or GIF files.'
+                minHeight: 200
+                minWidth: 200

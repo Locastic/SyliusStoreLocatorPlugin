@@ -21,6 +21,7 @@
         <field name="address" column="address" length="255" nullable="true"/>
 
         <field name="enabled" type="boolean" column="enabled"/>
+        <field name="pickupAtStoreAvailable" type="boolean" column="pickup_at_store_available" nullable="true"/>
 
         <field name="createdAt" type="datetime" column="created_at">
             <gedmo:timestampable on="create"/>
@@ -29,6 +30,12 @@
         <field name="updatedAt" type="datetime" column="updated_at" nullable="true">
             <gedmo:timestampable on="update"/>
         </field>
+
+        <one-to-many field="images" target-entity="Locastic\SyliusStoreLocatorPlugin\Entity\StoreImage" mapped-by="owner" orphan-removal="true">
+            <cascade>
+                <cascade-all/>
+            </cascade>
+        </one-to-many>
 
     </mapped-superclass>
 </doctrine-mapping>

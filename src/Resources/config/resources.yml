@@ -10,3 +10,9 @@ sylius_resource:
                 classes:
                     model: Locastic\SyliusStoreLocatorPlugin\Entity\StoreTranslation
                     form: Locastic\SyliusStoreLocatorPlugin\Form\Type\Translation\StoreTranslationType
+
+        locastic_sylius_store_locator_plugin.store_image:
+            driver: doctrine/orm
+            classes:
+                model: Locastic\SyliusStoreLocatorPlugin\Entity\StoreImage
+                form: Locastic\SyliusStoreLocatorPlugin\Form\Type\Image\StoreImageType

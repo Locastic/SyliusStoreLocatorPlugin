@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xmlns:gedmo="http://gediminasm.org/schemas/orm/doctrine-extensions-mapping"
+                  xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
+                                      http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+
+    <mapped-superclass name="Locastic\SyliusStoreLocatorPlugin\Entity\Shipment" table="sylius_shipment">
+        <many-to-one field="store" target-entity="Locastic\SyliusStoreLocatorPlugin\Entity\Store">
+            <join-column name="store_id" referenced-column-name="id" nullable="true" />
+        </many-to-one>
+    </mapped-superclass>
+</doctrine-mapping>
