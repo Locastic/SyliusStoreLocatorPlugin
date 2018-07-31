@@ -6,3 +6,22 @@ sylius_shipping:
         shipment:
             classes:
                 model: Locastic\SyliusStoreLocatorPlugin\Entity\Shipment
+
+
+services:
+    sylius.fixture.shipping_method:
+        class: Locastic\SyliusStoreLocatorPlugin\Fixture\ShippingMethodFixture
+        arguments:
+            - '@sylius.manager.shipping_method'
+            - '@sylius.fixture.example_factory.shipping_method'
+        tags:
+            - { name: sylius_fixtures.fixture }
+
+    sylius.fixture.example_factory.shipping_method:
+        class: Locastic\SyliusStoreLocatorPlugin\Fixture\ShippingMethodFactory
+        arguments:
+           - '@sylius.factory.shipping_method'
+           - '@sylius.repository.zone'
+           - '@sylius.repository.shipping_category'
+           - '@sylius.repository.locale'
+           - '@sylius.repository.channel'

@@ -7,6 +7,17 @@ sylius_fixtures:
             listeners:
                 logger: ~
             fixtures:
+                shipping_method:
+                    options:
+                        custom:
+                            pickup_at_store:
+                                code: "pickup_at_store"
+                                name: "Pickup at Store"
+                                is_pickup_at_store: true
+                                enabled: true
+                                channels:
+                                    - "US_WEB"
+
                 store:
                     options:
                         custom:
