@@ -7,7 +7,7 @@
     <div class="content">
         <div class="header">
             {{ shipment.method }}
-            {% if shipment.method.pickupAtLocation %}
+            {% if shipment.method.pickupAtStore %}
                 {{ shipment.store.name }}
             {% endif %}
         </div>

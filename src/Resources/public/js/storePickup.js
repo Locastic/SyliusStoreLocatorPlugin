@@ -2,7 +2,7 @@
 
 (function ($) {
     let itemSelector = $('.item');
-    let locationPickupCheckboxSelector = $('div.pick-up div.checkbox input');
+    let locationPickupCheckboxSelector = $('div.pick-up div.checkbox :input[value="pickup_at_store"]');
     let storeDropdownSelector = $('.store-select');
 
     var handleShopDropdown = function () {
