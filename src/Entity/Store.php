@@ -17,6 +17,7 @@ class Store implements StoreInterface
     use TimestampableTrait;
     use TranslatableTrait {
         __construct as protected initializeTranslationsCollection;
+        getTranslation as public translatableTraitGetTranslation;
     }
 
     protected $id;
@@ -119,72 +120,72 @@ class Store implements StoreInterface
 
     public function getSlug(): ?string
     {
-        return $this->getTranslation()->getSlug();
+        return $this->getStoreLocatorTranslation()->getSlug();
     }
 
     public function setSlug(?string $slug): void
     {
-        $this->getTranslation()->setSlug($slug);
+        $this->getStoreLocatorTranslation()->setSlug($slug);
     }
 
     public function getName(): ?string
     {
-        return $this->getTranslation()->getName();
+        return $this->getStoreLocatorTranslation()->getName();
     }
 
     public function setName(?string $name): void
     {
-        $this->getTranslation()->setName($name);
+        $this->getStoreLocatorTranslation()->setName($name);
     }
 
     public function getMetaTitle(): ?string
     {
-        return $this->getTranslation()->getMetaTitle();
+        return $this->getStoreLocatorTranslation()->getMetaTitle();
     }
 
     public function setMetaTitle(?string $metaTitle): void
     {
-        $this->getTranslation()->setMetaTitle($metaTitle);
+        $this->getStoreLocatorTranslation()->setMetaTitle($metaTitle);
     }
 
     public function getMetaKeywords(): ?string
     {
-        return $this->getTranslation()->getMetaKeywords();
+        return $this->getStoreLocatorTranslation()->getMetaKeywords();
     }
 
     public function setMetaKeywords(?string $metaKeywords): void
     {
-        $this->getTranslation()->setMetaKeywords($metaKeywords);
+        $this->getStoreLocatorTranslation()->setMetaKeywords($metaKeywords);
     }
 
     public function getMetaDescription(): ?string
     {
-        return $this->getTranslation()->getMetaDescription();
+        return $this->getStoreLocatorTranslation()->getMetaDescription();
     }
 
     public function setMetaDescription(?string $metaDescription): void
     {
-        $this->getTranslation()->setMetaDescription($metaDescription);
+        $this->getStoreLocatorTranslation()->setMetaDescription($metaDescription);
     }
 
     public function getContent(): ?string
     {
-        return $this->getTranslation()->getContent();
+        return $this->getStoreLocatorTranslation()->getContent();
     }
 
     public function setContent(?string $content): void
     {
-        $this->getTranslation()->setContent($content);
+        $this->getStoreLocatorTranslation()->setContent($content);
     }
 
     public function getOpeningHours(): ?string
     {
-        return $this->getTranslation()->getOpeningHours();
+        return $this->getStoreLocatorTranslation()->getOpeningHours();
     }
 
     public function setOpeningHours(?string $openingHours): void
     {
-        $this->getTranslation()->setOpeningHours($openingHours);
+        $this->getStoreLocatorTranslation()->setOpeningHours($openingHours);
     }
 
     public function setPickupAtStoreAvailable(bool $pickupAtStoreAvailable): void
@@ -199,7 +200,7 @@ class Store implements StoreInterface
 
     protected function getStoreTranslation(): StoreTranslationInterface
     {
-        return $this->getTranslation();
+        return $this->getStoreLocatorTranslation();
     }
 
     protected function createTranslation(): ?StoreTranslationInterface
@@ -217,12 +218,12 @@ class Store implements StoreInterface
         return !$this->images->isEmpty();
     }
 
-    public function hasImage(?ImageInterface $image): bool
+    public function hasImage(ImageInterface $image): bool
     {
         return $this->images->contains($image);
     }
 
-    public function addImage(?ImageInterface $image): void
+    public function addImage(ImageInterface $image): void
     {
         if ($image->hasFile()) {
             $image->setOwner($this);
@@ -238,5 +239,11 @@ class Store implements StoreInterface
         }
     }
 
+    public function getStoreLocatorTranslation(?string $locale = null): StoreTranslationInterface
+    {
+        /** @var StoreTranslationInterface $storeTranslation */
+        $storeTranslation = $this->translatableTraitGetTranslation($locale);
 
+        return $storeTranslation;
+    }
 }

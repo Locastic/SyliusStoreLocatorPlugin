@@ -7,7 +7,7 @@ sylius_fixtures:
             listeners:
                 logger: ~
             fixtures:
-                shipping_method:
+                app_shipping_method:
                     options:
                         custom:
                             pickup_at_store:
