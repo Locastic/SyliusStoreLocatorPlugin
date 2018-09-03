@@ -61,7 +61,7 @@ interface StoreInterface extends ResourceInterface, ToggleableInterface, Timesta
 
     public function hasImages(): bool;
 
-    public function hasImage(?ImageInterface $image): bool;
+    public function hasImage(ImageInterface $image): bool;
 
     public function addImage(ImageInterface $image): void;
 
