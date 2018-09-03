@@ -5,7 +5,7 @@ namespace Locastic\SyliusStoreLocatorPlugin\Entity;
 use Sylius\Component\Core\Model\ShippingMethod as BaseShippingMethod;
 use Sylius\Component\Shipping\Model\ShippingMethodTranslationInterface;
 
-class ShippingMethod extends BaseShippingMethod implements IsPickupAtStoreInterface
+class ShippingMethod extends BaseShippingMethod implements ShippingMethodInterface
 {
     use IsPickupAtStoreTrait;
 

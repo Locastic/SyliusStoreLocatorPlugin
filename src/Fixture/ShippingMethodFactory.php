@@ -4,12 +4,14 @@ declare(strict_types=1);
 
 namespace Locastic\SyliusStoreLocatorPlugin\Fixture;
 
+use Locastic\SyliusStoreLocatorPlugin\Entity\ShippingMethodInterface;
+use Sylius\Bundle\CoreBundle\Fixture\Factory\ShippingMethodExampleFactory;
 use Sylius\Bundle\CoreBundle\Fixture\OptionsResolver\LazyOption;
 use Sylius\Component\Addressing\Model\ZoneInterface;
 use Sylius\Component\Channel\Repository\ChannelRepositoryInterface;
 use Sylius\Component\Core\Formatter\StringInflector;
 use Sylius\Component\Core\Model\ChannelInterface;
-use Sylius\Component\Core\Model\ShippingMethodInterface;
+use Sylius\Component\Core\Model\ShippingMethodInterface as BaseShippingMethodInterface;
 use Sylius\Component\Locale\Model\LocaleInterface;
 use Sylius\Component\Resource\Factory\FactoryInterface;
 use Sylius\Component\Resource\Repository\RepositoryInterface;
@@ -17,9 +19,8 @@ use Sylius\Component\Shipping\Calculator\DefaultCalculators;
 use Sylius\Component\Shipping\Model\ShippingCategoryInterface;
 use Symfony\Component\OptionsResolver\Options;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Sylius\Bundle\CoreBundle\Fixture\Factory\AbstractExampleFactory;
 
-class ShippingMethodFactory extends AbstractExampleFactory
+class ShippingMethodFactory extends ShippingMethodExampleFactory
 {
     /**
      * @var FactoryInterface
@@ -70,115 +71,37 @@ class ShippingMethodFactory extends AbstractExampleFactory
         RepositoryInterface $localeRepository,
         ChannelRepositoryInterface $channelRepository
     ) {
-        $this->shippingMethodFactory = $shippingMethodFactory;
-        $this->zoneRepository = $zoneRepository;
-        $this->shippingCategoryRepository = $shippingCategoryRepository;
-        $this->localeRepository = $localeRepository;
-        $this->channelRepository = $channelRepository;
-
-        $this->faker = \Faker\Factory::create();
-        $this->optionsResolver = new OptionsResolver();
-
-        $this->configureOptions($this->optionsResolver);
+        parent::__construct($shippingMethodFactory, $zoneRepository, $shippingCategoryRepository, $localeRepository, $channelRepository);
     }
 
     /**
+     * ToDo: fix
      * {@inheritdoc}
      */
-    public function create(array $options = []): ShippingMethodInterface
+    public function create(array $options = []): BaseShippingMethodInterface
     {
-        $options = $this->optionsResolver->resolve($options);
-
-
         /** @var ShippingMethodInterface $shippingMethod */
-        $shippingMethod = $this->shippingMethodFactory->createNew();
-        $shippingMethod->setCode($options['code']);
-        $shippingMethod->setEnabled($options['enabled']);
-        $shippingMethod->setZone($options['zone']);
-        $shippingMethod->setCalculator($options['calculator']['type']);
-        $shippingMethod->setConfiguration($options['calculator']['configuration']);
-        $shippingMethod->setArchivedAt($options['archived_at']);
-
-        if (array_key_exists('shipping_category', $options)) {
-            $shippingMethod->setCategory($options['shipping_category']);
-        }
+        $shippingMethod = parent::create($options);
 
         if (array_key_exists('is_pickup_at_store', $options)) {
             $shippingMethod->setPickupAtStore($options['is_pickup_at_store']);
-        }
-
-        foreach ($this->getLocales() as $localeCode) {
-            $shippingMethod->setCurrentLocale($localeCode);
-            $shippingMethod->setFallbackLocale($localeCode);
-
-            $shippingMethod->setName($options['name']);
-            $shippingMethod->setDescription($options['description']);
-        }
-
-        foreach ($options['channels'] as $channel) {
-            $shippingMethod->addChannel($channel);
         }
 
         return $shippingMethod;
     }
 
     /**
+     * ToDo: fix
      * {@inheritdoc}
      */
     protected function configureOptions(OptionsResolver $resolver): void
     {
+        parent::configureOptions($resolver);
+
         $resolver
-            ->setDefault('code', function (Options $options): string {
-                return StringInflector::nameToCode($options['name']);
-            })
-            ->setDefault('name', function (Options $options): string {
-                return $this->faker->words(3, true);
-            })
-            ->setDefault('description', function (Options $options): string {
-                return $this->faker->sentence();
-            })
-            ->setDefault('enabled', function (Options $options): bool {
-                return $this->faker->boolean(90);
-            })
             ->setDefault('is_pickup_at_store', function (Options $options): bool {
                 return $this->faker->boolean(90);
             })
-            ->setAllowedTypes('enabled', 'bool')
-            ->setDefault('zone', LazyOption::randomOne($this->zoneRepository))
-            ->setAllowedTypes('zone', ['null', 'string', ZoneInterface::class])
-            ->setNormalizer('zone', LazyOption::findOneBy($this->zoneRepository, 'code'))
-            ->setDefined('shipping_category')
-            ->setAllowedTypes('shipping_category', ['null', 'string', ShippingCategoryInterface::class])
-            ->setNormalizer('shipping_category', LazyOption::findOneBy($this->shippingCategoryRepository, 'code'))
-            ->setDefault('calculator', function (Options $options): array {
-                $configuration = [];
-                /** @var ChannelInterface $channel */
-                foreach ($options['channels'] as $channel) {
-                    $configuration[$channel->getCode()] = ['amount' => $this->faker->randomNumber(4)];
-                }
-
-                return [
-                    'type' => DefaultCalculators::FLAT_RATE,
-                    'configuration' => $configuration,
-                ];
-            })
-            ->setDefault('channels', LazyOption::all($this->channelRepository))
-            ->setAllowedTypes('channels', 'array')
-            ->setNormalizer('channels', LazyOption::findBy($this->channelRepository, 'code'))
-            ->setDefault('archived_at', null)
-            ->setAllowedTypes('archived_at', ['null', \DateTimeInterface::class])
         ;
-    }
-
-    /**
-     * @return iterable
-     */
-    private function getLocales(): iterable
-    {
-        /** @var LocaleInterface[] $locales */
-        $locales = $this->localeRepository->findAll();
-        foreach ($locales as $locale) {
-            yield $locale->getCode();
-        }
     }
 }
