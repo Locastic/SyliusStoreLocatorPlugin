@@ -1,5 +1,5 @@
 parameters:
-    fixtures_dir: "%kernel.root_dir%/../app/Resources/fixtures"
+    fixtures_dir: "%kernel.project_dir%/app/Resources/fixtures"
 
 sylius_fixtures:
     suites:
