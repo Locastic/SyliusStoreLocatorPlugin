@@ -25,7 +25,7 @@ framework:
     validation: { enable_annotations: true }
     templating: { engines: ["twig"] }
     default_locale: "%locale%"
-    trusted_proxies: ~
+#    trusted_proxies: ~
     session:
         storage_id: session.storage.mock_file
     test: ~
@@ -68,3 +68,10 @@ fos_rest:
 sylius_theme:
     sources:
         test: ~
+
+liip_imagine:
+    resolvers:
+        default:
+            web_path:
+                web_root: "%kernel.project_dir%/web"
+                cache_prefix: "media/cache"
