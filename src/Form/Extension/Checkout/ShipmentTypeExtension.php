@@ -26,14 +26,13 @@ final class ShipmentTypeExtension extends AbstractTypeExtension
                 },
                 'mapped' => true,
                 'class' => Store::class,
-                'required' => false,
                 'choice_label' => 'name',
             ]
         );
     }
 
-    public function getExtendedType(): string
+    public static function getExtendedTypes(): iterable
     {
-        return ShipmentType::class;
+        return [ShipmentType::class];
     }
 }

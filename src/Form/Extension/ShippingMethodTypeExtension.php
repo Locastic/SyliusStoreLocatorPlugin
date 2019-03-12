@@ -13,17 +13,17 @@ final class ShippingMethodTypeExtension extends AbstractTypeExtension
     {
         $builder
             ->add(
-                'pickupAtLocation',
+                'pickupAtStore',
                 CheckboxType::class,
                 [
-                    'label' => 'locastic_sylius_store_locator_plugin.ui.pickup_at_location',
+                    'label' => 'locastic_sylius_store_locator_plugin.ui.pickup_at_store',
                     'required' => false,
                 ]
             );
     }
 
-    public function getExtendedType()
+    public static function getExtendedTypes(): iterable
     {
-        return ShippingMethodType::class;
+        return [ShippingMethodType::class];
     }
 }
