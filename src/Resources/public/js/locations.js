@@ -123,4 +123,11 @@
         map.setAddress();
     });
 
+    //This is temporary fix for app.js addition of hidden class.
+    setTimeout(function () {
+
+        $('#locastic_sylius_store_locator_plugin_store_enabled').removeClass('hidden');
+        $('#locastic_sylius_store_locator_plugin_store_pickupAtStoreAvailable').removeClass('hidden');
+    }, 500);
+
 }(window.jQuery));
