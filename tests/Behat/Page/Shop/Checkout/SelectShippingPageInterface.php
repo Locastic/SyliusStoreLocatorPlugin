@@ -6,6 +6,8 @@ use Sylius\Behat\Page\Shop\Checkout\SelectShippingPageInterface as BaseSelectShi
 
 interface SelectShippingPageInterface extends BaseSelectShippingPageInterface
 {
+    public function hasValidationError();
+
     public function hasStoreSelector($storeName);
 
     public function selectStore($storeName);

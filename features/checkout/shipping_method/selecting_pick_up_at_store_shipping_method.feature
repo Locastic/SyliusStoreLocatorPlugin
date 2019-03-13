@@ -25,6 +25,18 @@ Feature: Selecting shipping method with pickup at store
     And I complete the shipping step
 
   @ui
+  Scenario: Selecting store pickup shipping method without store selection
+    Given I have product "Targaryen T-Shirt" in the cart
+    And I am at the checkout addressing step
+    When I specify the email as "jon.snow@example.com"
+    And I specify the shipping address as "Ankh Morpork", "Frost Alley", "90210", "United States" for "Jon Snow"
+    And I complete the addressing step
+    Then I should be redirected to the shipping step
+    And I select "pickup at store" shipping method
+    And I complete the shipping step
+    Then I should see a validation error
+
+  @ui
   Scenario: I should be able to select other shipping method and not choose store
     Given I have product "Targaryen T-Shirt" in the cart
     And I am at the checkout addressing step

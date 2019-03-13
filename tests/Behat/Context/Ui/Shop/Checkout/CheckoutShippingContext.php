@@ -49,6 +49,14 @@ final class CheckoutShippingContext implements Context
     }
 
     /**
+     * @Then /^I should see a validation error$/
+     */
+    public function iShouldSeeValidationError()
+    {
+        Assert::notNull($this->selectShippingPage->hasValidationError());
+    }
+
+    /**
      * @When /^I select "([^"]*)" store location$/
      */
     public function iSelectStoreLocation($storeName)

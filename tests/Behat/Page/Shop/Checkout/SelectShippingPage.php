@@ -7,6 +7,11 @@ use \Sylius\Behat\Page\Shop\Checkout\SelectShippingPage as BaseSelectShippingPag
 
 class SelectShippingPage extends BaseSelectShippingPage implements SelectShippingPageInterface
 {
+    public function hasValidationError()
+    {
+        return $this->getSession()->getPage()->find('css', '.sylius-validation-error');
+    }
+
     /**
      * {@inheritdoc}
      */
@@ -40,7 +45,6 @@ class SelectShippingPage extends BaseSelectShippingPage implements SelectShippin
     {
         $storeNames = $this->getSession()->getPage()->findAll('css', '.store-select .dropdown option');
 
-        dump($storeNames);
         /** @var NodeElement $storeName */
         foreach ($storeNames as $storeName) {
             if (null !== $storeName->find('css', ':selected')) {
