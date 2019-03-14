@@ -7,7 +7,7 @@
     {% if store.metaTitle %}
         {{ store.metaTitle }}
     {% else %}
-        {{ store.title }}
+        {{ store.name }}
     {% endif %}
 {% endblock %}
 
@@ -38,45 +38,51 @@
         <div class="column">
             <div id="map" style="height: 500px;"></div>
         </div>
-        <div class="column" id="store-location" itemscope itemtype="http://schema.org/Place" data-lat="{{ store.latitude }}" data-lng="{{ store.longitude }}">
-            <p itemprop="address"><strong>{{ 'locastic_sylius_store_locator_plugin.ui.address'|trans }}
-                    : </strong> {{ store.address }}</p>
-            <p><strong>{{ 'locastic_sylius_store_locator_plugin.ui.contact_email'|trans }}
-                    : </strong>{{ store.contactEmail }}</p>
-            <p itemprop="telephone">
-                <strong>{{ 'locastic_sylius_store_locator_plugin.ui.contact_phone'|trans }}
-                    : </strong>{{ store.contactPhone }}</p>
-            <p>
-                <strong itemprop="openingHoursSpecification">{{ 'locastic_sylius_store_locator_plugin.ui.opening_hours'|trans }}
-                    : </strong>{{ store.openingHours|raw }}</p>
-
+        <div class="column" id="store-location" itemscope itemtype="http://schema.org/Place"
+             data-lat="{{ store.latitude }}" data-lng="{{ store.longitude }}">
+            {% if store.address %}
+                <p itemprop="address"><strong>{{ 'locastic_sylius_store_locator_plugin.ui.address'|trans }}
+                        : </strong> {{ store.address }}</p>
+            {% endif %}
+            {% if store.contactEmail %}
+                <p><strong>{{ 'locastic_sylius_store_locator_plugin.ui.contact_email'|trans }}
+                        : </strong>{{ store.contactEmail }}</p>
+            {% endif %}
+            {% if store.contactPhone %}
+                <p itemprop="telephone">
+                    <strong>{{ 'locastic_sylius_store_locator_plugin.ui.contact_phone'|trans }}
+                        : </strong>{{ store.contactPhone }}</p>
+            {% endif %}
+            {% if store.openingHours %}
+                <p>
+                    <strong itemprop="openingHoursSpecification">{{ 'locastic_sylius_store_locator_plugin.ui.opening_hours'|trans }}
+                        : </strong>{{ store.openingHours|raw }}</p>
+            {% endif %}
             <div itemprop="description">
                 {{ store.content|raw }}
             </div>
-
         </div>
-
     </div>
 
     <div class="container-fluid">
-        {% if store.images %}
-        <h3>
-            {{ 'locastic_sylius_store_locator_plugin.ui.images'|trans }}
-        </h3>
+        {% if store.images|length > 0 %}
+            <h3>
+                {{ 'locastic_sylius_store_locator_plugin.ui.images'|trans }}
+            </h3>
 
-        <div class="ui four cards">
-            {% for storeImage in store.images %}
-                <div class="ui fluid card">
+            <div class="ui four cards">
+                {% for storeImage in store.images %}
+                    <div class="ui fluid card">
 
-                    {% set imagePath = '/media/image/'~storeImage.path %}
-                    <img class="ui image dimmable" src="{{ imagePath }}" alt="" height="150px">
+                        {% set imagePath = '/media/image/'~storeImage.path %}
+                        <img class="ui image dimmable" src="{{ imagePath }}" alt="" height="150px">
 
-                    <div class="content">
-                        <h2 class="header">{{ storeImage.type }}</h2>
+                        <div class="content">
+                            <h2 class="header">{{ storeImage.type }}</h2>
+                        </div>
                     </div>
-                </div>
-            {% endfor %}
-        </div>
+                {% endfor %}
+            </div>
         {% endif %}
     </div>
 {% endblock %}
