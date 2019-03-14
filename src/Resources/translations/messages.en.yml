@@ -20,5 +20,5 @@ locastic_sylius_store_locator_plugin:
         opening_hours: Opening hours
         see_more: See More
         pickup_at_store_available: Pickup At Store Available
-        pickup_at_location: Pickup At Location
+        pickup_at_store: Pickup At Location
         images: Images of store

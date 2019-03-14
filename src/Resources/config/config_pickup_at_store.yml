@@ -4,6 +4,8 @@ imports:
 services:
     locastic_sylius_store_locator_plugin.form.extension.type.shipment:
         class: Locastic\SyliusStoreLocatorPlugin\Form\Extension\Checkout\ShipmentTypeExtension
+        arguments:
+            - '@translator'
         tags:
             - { name: form.type_extension, extended_type: Sylius\Bundle\CoreBundle\Form\Type\Checkout\ShipmentType }
 

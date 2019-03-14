@@ -32,13 +32,14 @@
         "phpunit/phpunit": "^6.5",
         "se/selenium-server-standalone": "^2.52",
         "sylius-labs/coding-standard": "^2.0",
-        "symplify/easy-coding-standard": "^4.6"
+        "symplify/easy-coding-standard": "^4.6",
+        "behat/symfony2-extension": "^2.1"
     },
     "prefer-stable": true,
     "autoload": {
         "psr-4": {
             "Locastic\\SyliusStoreLocatorPlugin\\": "src/",
-            "Tests\\Acme\\SyliusExamplePlugin\\": "tests/"
+            "Tests\\Locastic\\SyliusStoreLocatorPlugin\\": "tests/"
         }
     },
     "autoload-dev": {

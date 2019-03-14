@@ -40,6 +40,12 @@ services:
         tags:
             - { name: sylius_fixtures.fixture }
 
+    locastic_sylius_store_locator_plugin.example_factory.store:
+        class: Locastic\SyliusStoreLocatorPlugin\Fixture\StoreFactory
+        arguments:
+            - '@sylius.image_uploader'
+        public: true
+
 
 # listeners
     locastic_sylius_store_locator_plugin.listener.images_upload:

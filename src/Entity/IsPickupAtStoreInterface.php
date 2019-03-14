@@ -6,5 +6,5 @@ interface IsPickupAtStoreInterface
 {
     public function isPickupAtStore(): ?bool;
 
-    public function setPickupAtStore(bool $pickupAtLocation): void;
+    public function setPickupAtStore(bool $pickupAtStore): void;
 }

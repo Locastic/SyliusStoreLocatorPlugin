@@ -1,4 +1,0 @@
-Locastic\SyliusStoreLocatorPlugin\Entity\Shipment:
-    constraints:
-        - Locastic\SyliusStoreLocatorPlugin\Validator\Constraints\IsStorePopulated:
-            groups: ['sylius']
