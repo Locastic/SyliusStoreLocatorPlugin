@@ -80,4 +80,28 @@ final class StoreContext implements Context
     {
         Assert::true($this->storeShowPage->hasStoreImage());
     }
+
+    /**
+     * @Given /^I should not see "([^"]*)" store information$/
+     */
+    public function iShouldNotSeeStoreInformation($storeName)
+    {
+        Assert::true($this->storeShowPage->doesntHaveStoreInformation());
+    }
+
+    /**
+     * @Given /^I should see "([^"]*)" store title$/
+     */
+    public function iShouldSeeStoreTitle($storeName)
+    {
+        Assert::true($this->storeShowPage->hasStoreTitle($storeName));
+    }
+
+    /**
+     * @Given /^I should not see store images$/
+     */
+    public function iShouldNotSeeStoreImages()
+    {
+        Assert::false($this->storeShowPage->hasStoreImage());
+    }
 }

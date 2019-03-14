@@ -81,6 +81,38 @@ final class StoreContext implements Context
     }
 
     /**
+     * @Given /^the store has "([^"]*)" store location with only required info$/
+     */
+    public function theStoreHasStoreLocationWithOnlyRequiredInfo($storeName)
+    {
+        $this->saveStore(
+            $this->storeFactory->create(
+                [
+                    'latitude' => null,
+                    'longitude' => null,
+                    'address' => null,
+                    'contact_phone' => null,
+                    'contact_email' => null,
+                    'pickup_at_store_available' => true,
+                    'code' => StringInflector::nameToCode(strtolower($storeName)),
+                    'translations' => [
+                        'en_US' => [
+                            'name' => $storeName,
+                            'slug' => StringInflector::nameToCode(strtolower($storeName)),
+                            'meta_title' => null,
+                            'meta_description' => null,
+                            'meta_keywords' => null,
+                            'content' => null,
+                            'opening_hours' => null,
+                        ],
+                    ],
+                    'images' => [],
+                ]
+            )
+        );
+    }
+
+    /**
      * @param StoreInterface $store
      */
     private function saveStore(StoreInterface $store)

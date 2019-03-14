@@ -51,6 +51,42 @@ class StoreShowPage extends SymfonyPage implements StoreShowPageInterface
 
     }
 
+    public function hasStoreTitle($storeName)
+    {
+        $titleElement = $this->getSession()->getPage()->find('css', 'h1.header');
+
+        return !($titleElement->getText() !== $storeName);
+    }
+
+    public function doesntHaveStoreInformation()
+    {
+        $hasStoreInfo = false;
+
+        $infoElements = $this->getSession()->getPage()->findAll('css', '#store-location p');
+
+        $existingItemProps = [];
+        foreach ($infoElements as $infoElement) {
+            $existingItemProps[] = $infoElement->getAttribute('itemprop');
+        }
+
+        if (!empty($existingItemProps)) {
+            $hasStoreInfo = true;
+        }
+
+        $descriptionElements = $this->getSession()->getPage()->findAll('css', '#store-location div');
+        $existingItemProps = [];
+        foreach ($descriptionElements as $descriptionElement) {
+            $existingItemProps[] = $descriptionElement->getAttribute('itemprop');
+        }
+
+        if (in_array('description', $existingItemProps)) {
+            $hasStoreInfo = true;
+        }
+
+        return $hasStoreInfo;
+
+    }
+
     public function hasStoreImage()
     {
         $imgElement = $this->getSession()->getPage()->find('css', 'img.dimmable');
