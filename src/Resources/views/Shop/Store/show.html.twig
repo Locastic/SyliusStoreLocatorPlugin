@@ -45,7 +45,7 @@
                         : </strong> {{ store.address }}</p>
             {% endif %}
             {% if store.contactEmail %}
-                <p><strong>{{ 'locastic_sylius_store_locator_plugin.ui.contact_email'|trans }}
+                <p itemprop="email"><strong>{{ 'locastic_sylius_store_locator_plugin.ui.contact_email'|trans }}
                         : </strong>{{ store.contactEmail }}</p>
             {% endif %}
             {% if store.contactPhone %}
@@ -54,7 +54,7 @@
                         : </strong>{{ store.contactPhone }}</p>
             {% endif %}
             {% if store.openingHours %}
-                <p>
+                <p itemprop="hours">
                     <strong itemprop="openingHoursSpecification">{{ 'locastic_sylius_store_locator_plugin.ui.opening_hours'|trans }}
                         : </strong>{{ store.openingHours|raw }}</p>
             {% endif %}

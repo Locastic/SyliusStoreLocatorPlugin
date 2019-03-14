@@ -1,4 +1,6 @@
 services:
+    #shop
+
     locastic_sylius_store_locator.context.ui.shop.checkout.shipping:
         class: Tests\Locastic\SyliusStoreLocatorPlugin\Behat\Context\Ui\Shop\Checkout\CheckoutShippingContext
         arguments:
@@ -12,20 +14,32 @@ services:
         class: Tests\Locastic\SyliusStoreLocatorPlugin\Behat\Context\Ui\Shop\Store\StoreContext
         arguments:
             - "@locastic_sylius_store_locator.page.shop.store_index"
+            - "@locastic_sylius_store_locator.page.shop.store_show"
         tags:
             - fob.context_service
 
+
+    #setup
 
     locastic_sylius_store_locator.behat.context.setup.shipping:
         class: Tests\Locastic\SyliusStoreLocatorPlugin\Behat\Context\Setup\ShippingContext
         arguments:
-            - "@__symfony__.locastic_sylius_store_locator_plugin.repository.store"
             - "@sylius.behat.shared_storage"
             - "@__symfony__.app.fixture.example_factory.shipping_method"
-            - "@__symfony__.locastic_sylius_store_locator_plugin.example_factory.store"
             - "@__symfony__.sylius.repository.shipping_method"
         tags:
             - fob.context_service
+
+    locastic_sylius_store_locator.behat.context.setup.store:
+        class: Tests\Locastic\SyliusStoreLocatorPlugin\Behat\Context\Setup\StoreContext
+        arguments:
+            - "@__symfony__.locastic_sylius_store_locator_plugin.repository.store"
+            - "@__symfony__.locastic_sylius_store_locator_plugin.example_factory.store"
+            - "@sylius.behat.shared_storage"
+        tags:
+            - fob.context_service
+
+    #pages
 
     locastic_sylius_store_locator.page.shop.select_shipping:
         class: Tests\Locastic\SyliusStoreLocatorPlugin\Behat\Page\Shop\Checkout\SelectShippingPage
@@ -34,5 +48,10 @@ services:
 
     locastic_sylius_store_locator.page.shop.store_index:
         class: Tests\Locastic\SyliusStoreLocatorPlugin\Behat\Page\Shop\Store\StoreIndexPage
+        public: false
+        parent: sylius.behat.symfony_page
+
+    locastic_sylius_store_locator.page.shop.store_show:
+        class: Tests\Locastic\SyliusStoreLocatorPlugin\Behat\Page\Shop\Store\StoreShowPage
         public: false
         parent: sylius.behat.symfony_page

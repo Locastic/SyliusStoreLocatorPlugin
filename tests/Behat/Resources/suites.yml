@@ -2,8 +2,10 @@ default:
     suites:
         store_pickup:
             contexts_services:
-                - locastic_sylius_store_locator.context.ui.shop.checkout.shipping
                 - locastic_sylius_store_locator.behat.context.setup.shipping
+                - locastic_sylius_store_locator.behat.context.setup.store
+
+                - locastic_sylius_store_locator.context.ui.shop.checkout.shipping
                 - locastic_sylius_store_locator.context.ui.shop.store
 
                 - sylius.behat.context.hook.doctrine_orm
