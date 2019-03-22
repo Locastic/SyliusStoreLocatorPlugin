@@ -4,6 +4,13 @@ imports:
 
 default:
     extensions:
+        Behat\MinkExtension:
+            base_url: http://127.0.0.1:8080
+            javascript_session: selenium2
+            browser_name: 'chrome'
+            selenium2:
+                capabilities: { "browserName": "chrome", "browser": "chrome", "version": "62", 'chrome': {'switches':['--no-sandbox', '--headless']}}
+
         FriendsOfBehat\ContextServiceExtension:
             imports:
                 - vendor/sylius/sylius/src/Sylius/Behat/Resources/config/services.xml
@@ -18,4 +25,24 @@ default:
         Lakion\Behat\MinkDebugExtension:
             directory: etc/build
             clean_start: false
-            screenshot: true
+            screenshot: false
+
+
+javascript:
+    extensions:
+        Lakion\Behat\MinkDebugExtension:
+            directory: etc/build
+            clean_start: false
+            screenshot: false
+
+        Behat\MinkExtension:
+            base_url: http://127.0.0.1:8080
+            javascript_session: selenium2
+            browser_name: chrome
+            show_auto: false
+            selenium2:
+                capabilities: { "marionette": null, "browserName": "chrome", "browser": "chrome", "version": "63", 'chrome': {'switches':['--no-sandbox', '--headless', 'start-maximized']}}
+
+    gherkin:
+        filters:
+            tags: "@javascript"

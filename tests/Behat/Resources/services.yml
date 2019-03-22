@@ -1,3 +1,6 @@
+parameters:
+    sylius.behat.page.admin.store.index.class: "%sylius.behat.page.admin.crud.index.class%"
+
 services:
     #shop
 
@@ -18,7 +21,16 @@ services:
         tags:
             - fob.context_service
 
+    # admin
 
+    locastic_sylius_store_locator.context.ui.admin.managing_stores:
+        class: Tests\Locastic\SyliusStoreLocatorPlugin\Behat\Context\Ui\Admin\ManagingStoresContext
+        arguments:
+            - "@locastic_sylius_store_locator.page.admin.store_index"
+            - "@locastic_sylius_store_locator.page.admin.store_create"
+            - "@locastic_sylius_store_locator.page.admin.store_update"
+        tags:
+            - fob.context_service
     #setup
 
     locastic_sylius_store_locator.behat.context.setup.shipping:
@@ -39,6 +51,14 @@ services:
         tags:
             - fob.context_service
 
+    #transform
+    locastic_sylius_store_locator.behat.context.transform.store:
+        class: Tests\Locastic\SyliusStoreLocatorPlugin\Behat\Context\Transform\StoreContext
+        arguments:
+            - "@__symfony__.locastic_sylius_store_locator_plugin.repository.store"
+        tags:
+            - fob.context_service
+
     #pages
 
     locastic_sylius_store_locator.page.shop.select_shipping:
@@ -55,3 +75,24 @@ services:
         class: Tests\Locastic\SyliusStoreLocatorPlugin\Behat\Page\Shop\Store\StoreShowPage
         public: false
         parent: sylius.behat.symfony_page
+
+    locastic_sylius_store_locator.page.admin.store_index:
+        class: '%sylius.behat.page.admin.store.index.class%'
+        public: true
+        parent: sylius.behat.page.admin.crud.index
+        arguments:
+            - "locastic_sylius_store_locator_plugin_admin_store_index"
+
+    locastic_sylius_store_locator.page.admin.store_create:
+        class: Tests\Locastic\SyliusStoreLocatorPlugin\Behat\Page\Admin\Store\CreatePage
+        public: true
+        parent: sylius.behat.page.admin.crud.create
+        arguments:
+            - "locastic_sylius_store_locator_plugin_admin_store_create"
+
+    locastic_sylius_store_locator.page.admin.store_update:
+        class: Tests\Locastic\SyliusStoreLocatorPlugin\Behat\Page\Admin\Store\UpdatePage
+        public: true
+        parent: sylius.behat.page.admin.crud.update
+        arguments:
+            - "locastic_sylius_store_locator_plugin_admin_store_update"
